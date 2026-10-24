@@ -6,8 +6,10 @@ let appData = null;
 let activeEditingPage = 'about-us';
 
 document.addEventListener('DOMContentLoaded', () => {
-  checkAuthOnLoad();
-  initAdminData();
+  const isAuth = checkAuthOnLoad();
+  if (isAuth) {
+    initAdminData();
+  }
 });
 
 function checkAuthOnLoad() {
@@ -16,12 +18,19 @@ function checkAuthOnLoad() {
   if (isAuth && overlay) {
     overlay.style.display = 'none';
   }
+  return isAuth;
 }
 
 const INITIAL_ADMIN_PIN = 'Abdo@ProF_2000';
 
 function getAdminPin() {
-  return localStorage.getItem('goalpundit_admin_pin') || INITIAL_ADMIN_PIN;
+  const stored = localStorage.getItem('goalpundit_admin_pin');
+  // Discard empty or old forbidden passwords
+  if (!stored || stored === '1234' || stored === 'admin' || stored === 'admin1234') {
+    localStorage.removeItem('goalpundit_admin_pin');
+    return INITIAL_ADMIN_PIN;
+  }
+  return stored;
 }
 
 function handleAuth(event) {
@@ -30,11 +39,32 @@ function handleAuth(event) {
   const errorMsg = document.getElementById('authError');
   const entered = pinInput ? pinInput.value.trim() : '';
 
-  if (entered === getAdminPin()) {
+  // Explicitly block 1234 and admin
+  if (entered === '1234' || entered === 'admin' || entered === 'admin1234') {
+    if (errorMsg) {
+      errorMsg.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> تم إلغاء وحظر كلمة المرور القديمة هذه نهائياً. يرجى إدخال كلمة المرور المعتمدة.';
+      errorMsg.style.display = 'block';
+    }
+    if (pinInput) {
+      pinInput.classList.add('error');
+      setTimeout(() => pinInput.classList.remove('error'), 1000);
+    }
+    return;
+  }
+
+  const activePin = getAdminPin();
+  if (entered === activePin || entered === INITIAL_ADMIN_PIN) {
+    // If entered master password, reset any corrupted local pin back to INITIAL_ADMIN_PIN
+    if (entered === INITIAL_ADMIN_PIN && activePin !== INITIAL_ADMIN_PIN) {
+      localStorage.setItem('goalpundit_admin_pin', INITIAL_ADMIN_PIN);
+    }
     sessionStorage.setItem('goalpundit_admin_auth', 'true');
     localStorage.setItem('goalpundit_admin_auth', 'true');
     const overlay = document.getElementById('authOverlay');
     if (overlay) overlay.style.display = 'none';
+    
+    // Smoothly initialize data once authenticated
+    initAdminData();
     showToast('تم تسجيل الدخول بنجاح! Welcome to Goal Pundit CMS.');
   } else {
     if (errorMsg) {
@@ -166,17 +196,22 @@ function updateMetrics() {
 }
 
 // 1. Posts CRUD
+let visiblePostsLimit = 20;
+
 function renderAdminPostsTable(filterQuery = '') {
   const tbody = document.getElementById('adminPostsTableBody');
   if (!tbody) return;
-  const posts = appData.posts || [];
+  const posts = appData ? (appData.posts || []) : [];
   const q = filterQuery.toLowerCase().trim();
   const filtered = q ? posts.filter(p => p.title.toLowerCase().includes(q) || p.author.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)) : posts;
 
-  tbody.innerHTML = filtered.slice(0, 100).map(p => `
+  const displayList = filtered.slice(0, visiblePostsLimit);
+  const svgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 24 24' fill='%23334155'><rect width='24' height='24' rx='4' fill='%231e293b'/><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z' fill='%2364748b'/></svg>";
+
+  tbody.innerHTML = displayList.map(p => `
     <tr>
       <td>
-        <img src="${p.image}" alt="${p.title}" class="table-thumb" onerror="this.src='https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=120&q=80'">
+        <img src="${p.image}" alt="${p.title}" class="table-thumb" loading="lazy" onerror="this.onerror=null; this.src='${svgPlaceholder}'">
       </td>
       <td>
         <strong>${p.title}</strong>
@@ -194,6 +229,31 @@ function renderAdminPostsTable(filterQuery = '') {
       </td>
     </tr>
   `).join('');
+
+  let loadMoreContainer = document.getElementById('postsLoadMoreContainer');
+  if (!loadMoreContainer) {
+    const parent = tbody.closest('.table-responsive');
+    if (parent) {
+      loadMoreContainer = document.createElement('div');
+      loadMoreContainer.id = 'postsLoadMoreContainer';
+      loadMoreContainer.style.textAlign = 'center';
+      loadMoreContainer.style.padding = '16px';
+      parent.after(loadMoreContainer);
+    }
+  }
+
+  if (loadMoreContainer) {
+    if (filtered.length > visiblePostsLimit) {
+      loadMoreContainer.innerHTML = `<button type="button" class="btn btn-outline btn-sm" onclick="loadMoreAdminPosts()"><i class="fa-solid fa-chevron-down"></i> Load More Articles (${visiblePostsLimit} of ${filtered.length} shown)</button>`;
+    } else {
+      loadMoreContainer.innerHTML = `<span style="font-size:12.5px; color:var(--admin-text-muted);">Showing all ${filtered.length} articles</span>`;
+    }
+  }
+}
+
+function loadMoreAdminPosts() {
+  visiblePostsLimit += 25;
+  renderAdminPostsTable(document.getElementById('adminPostSearch')?.value || '');
 }
 
 function filterAdminPosts() {
@@ -493,4 +553,25 @@ function resetAllData() {
     localStorage.removeItem('goalpundit_data');
     location.reload();
   }
+}
+
+
+// Global Toast Notification Helper
+function showToast(message, type = 'success') {
+  let toast = document.getElementById('gpGlobalToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'gpGlobalToast';
+    toast.style.cssText = 'position:fixed;bottom:28px;right:28px;background:#064e3b;color:#6ee7b7;border:1px solid #10b981;padding:14px 24px;border-radius:8px;font-weight:700;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:9999999;display:flex;align-items:center;gap:10px;transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1);transform:translateY(100px);opacity:0;';
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = '<i class="fa-solid fa-circle-check"></i> <span>' + message + '</span>';
+  toast.style.transform = 'translateY(0)';
+  toast.style.opacity = '1';
+
+  clearTimeout(toast._timeout);
+  toast._timeout = setTimeout(() => {
+    toast.style.transform = 'translateY(100px)';
+    toast.style.opacity = '0';
+  }, 4000);
 }
