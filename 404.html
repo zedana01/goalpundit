@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting... | Goal Pundit</title>
+  <script>
+    // Smart SEO Permalinks & Internal Links Router
+    (function() {
+      var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      if (path && !path.endsWith('.html') && !path.startsWith('images') && !path.startsWith('css') && !path.startsWith('js') && !path.startsWith('admin')) {
+        var segments = path.split('/');
+        var slug = segments[segments.length - 1];
+        if (slug) {
+          // Redirect to appropriate post or category
+          window.location.replace('/post.html?slug=' + encodeURIComponent(slug));
+        }
+      }
+    })();
+  </script>
+
+  <script src="/js/goalpundit-sync.js"></script>
+</head>
+<body style="background:#0b0f17; color:#fff; font-family:sans-serif; text-align:center; padding-top:100px;">
+  <h2>Loading tactical analysis...</h2>
+  <p>If you are not redirected automatically, <a href="/" style="color:#0ea5e9;">click here to visit homepage</a>.</p>
+</body>
+</html>

@@ -3,6 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" id="metaDescription" content="Global Football Analysis, tactical blueprints, and in-depth match breakdowns by Mohamed Zeidan.">
+  <meta name="keywords" id="metaKeywords" content="football tactics, match analysis, gegenpressing, inverted fullback, premier league, champions league, tactical lab">
+  <meta name="author" content="Mohamed Zeidan">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" id="canonicalLink" href="https://goalpundit.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" id="ogType" content="article">
+  <meta property="og:site_name" content="Goal Pundit">
+  <meta property="og:title" id="ogTitle" content="Tactical Analysis | Goal Pundit">
+  <meta property="og:description" id="ogDescription" content="Deep tactical football previews, post-match reviews, and official insights.">
+  <meta property="og:url" id="ogUrl" content="https://goalpundit.com/">
+  <meta property="og:image" id="ogImage" content="https://goalpundit.com/images/posts/default-football.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@goalpundit1977">
+  <meta name="twitter:creator" content="@goalpundit1977">
+  <meta name="twitter:title" id="twTitle" content="Tactical Analysis | Goal Pundit">
+  <meta name="twitter:description" id="twDescription" content="Deep tactical football previews, post-match reviews, and official insights.">
+  <meta name="twitter:image" id="twImage" content="https://goalpundit.com/images/posts/default-football.jpg">
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json" id="articleSchema">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://goalpundit.com/" },
+    "headline": "Goal Pundit Tactical Analysis",
+    "image": ["https://goalpundit.com/images/posts/default-football.jpg"],
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24",
+    "author": { "@type": "Person", "name": "Mohamed Zeidan" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Goal Pundit",
+      "logo": { "@type": "ImageObject", "url": "https://goalpundit.com/images/logo.webp" }
+    }
+  }
+  </script>
+
   <title>Tactical Analysis | Goal Pundit</title>
   <link rel="icon" type="image/webp" href="images/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -289,7 +331,60 @@
     });
 
     function renderPost(p) {
+            // Update Dynamic SEO Tags
+      const fullUrl = 'https://goalpundit.com/post.html?slug=' + p.slug;
+      const fullImgUrl = p.image.startsWith('http') ? p.image : ('https://goalpundit.com' + p.image);
+      const cleanExcerpt = (p.excerpt || '').replace(/<[^>]*>/g, '').trim().substring(0, 160);
+
       document.title = p.title + ' | Goal Pundit';
+      
+      const descEl = document.getElementById('metaDescription');
+      if (descEl) descEl.setAttribute('content', cleanExcerpt);
+
+      const canEl = document.getElementById('canonicalLink');
+      if (canEl) canEl.setAttribute('href', fullUrl);
+
+      const ogT = document.getElementById('ogTitle');
+      if (ogT) ogT.setAttribute('content', p.title);
+      const ogD = document.getElementById('ogDescription');
+      if (ogD) ogD.setAttribute('content', cleanExcerpt);
+      const ogU = document.getElementById('ogUrl');
+      if (ogU) ogU.setAttribute('content', fullUrl);
+      const ogI = document.getElementById('ogImage');
+      if (ogI) ogI.setAttribute('content', fullImgUrl);
+
+      const twT = document.getElementById('twTitle');
+      if (twT) twT.setAttribute('content', p.title);
+      const twD = document.getElementById('twDescription');
+      if (twD) twD.setAttribute('content', cleanExcerpt);
+      const twI = document.getElementById('twImage');
+      if (twI) twI.setAttribute('content', fullImgUrl);
+
+      const schemaEl = document.getElementById('articleSchema');
+      if (schemaEl) {
+        schemaEl.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "mainEntityOfPage": { "@type": "WebPage", "@id": fullUrl },
+          "headline": p.title,
+          "description": cleanExcerpt,
+          "image": [fullImgUrl],
+          "datePublished": p.dateTime || p.date,
+          "dateModified": p.dateTime || p.date,
+          "author": {
+            "@type": "Person",
+            "name": p.author || "Mohamed Zeidan",
+            "jobTitle": "Lead Football Tactician",
+            "url": "https://goalpundit.com/about.html"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Goal Pundit",
+            "logo": { "@type": "ImageObject", "url": "https://goalpundit.com/images/logo.webp" }
+          }
+        }, null, 2);
+      }
+
       document.getElementById('postBreadcrumbCategory').innerText = p.category;
       document.getElementById('postBreadcrumbCategory').href = 'category.html?slug=' + (p.categorySlug || 'tactical-lab');
       document.getElementById('postBreadcrumbTitle').innerText = p.title.length > 40 ? p.title.substring(0, 40) + '...' : p.title;

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    // Smart SEO Permalinks & Internal Links Router
+    (function() {
+      var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      if (path && !path.endsWith('.html') && !path.startsWith('images') && !path.startsWith('css') && !path.startsWith('js') && !path.startsWith('admin')) {
+        var segments = path.split('/');
+        var slug = segments[segments.length - 1];
+        if (slug) {
+          // Redirect to appropriate post or category
+          window.location.replace('/post.html?slug=' + encodeURIComponent(slug));
+        }
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goal Pundit | Global Football Analysis & Tactical Insights</title>
