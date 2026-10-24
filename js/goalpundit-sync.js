@@ -104,3 +104,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+
+// ---------------------------------------------------------------------------
+// GLOBAL HIGH-END MOBILE NAVIGATION HANDLER
+// ---------------------------------------------------------------------------
+function toggleMobileNav() {
+  const nav = document.querySelector('.site-nav');
+  const btn = document.querySelector('.mobile-menu-btn');
+  let backdrop = document.querySelector('.mobile-nav-backdrop');
+  
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'mobile-nav-backdrop';
+    backdrop.onclick = closeMobileNav;
+    document.body.appendChild(backdrop);
+  }
+
+  if (nav) {
+    const isNowActive = nav.classList.toggle('mobile-active');
+    if (btn) {
+      btn.classList.toggle('active', isNowActive);
+      btn.innerHTML = isNowActive ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    }
+    backdrop.classList.toggle('show', isNowActive);
+    document.body.style.overflow = isNowActive ? 'hidden' : '';
+  }
+}
+
+function closeMobileNav() {
+  const nav = document.querySelector('.site-nav');
+  const btn = document.querySelector('.mobile-menu-btn');
+  const backdrop = document.querySelector('.mobile-nav-backdrop');
+  if (nav) nav.classList.remove('mobile-active');
+  if (btn) {
+    btn.classList.remove('active');
+    btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }
+  if (backdrop) backdrop.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const dropdownParents = document.querySelectorAll('.nav-item-dropdown');
+  dropdownParents.forEach(dp => {
+    const link = dp.querySelector('.nav-link');
+    if (link) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
+          e.preventDefault();
+          dropdownParents.forEach(other => {
+            if (other !== dp) other.classList.remove('open');
+          });
+          dp.classList.toggle('open');
+        }
+      });
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+});
