@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Goal Pundit</title>
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="trending-ticker">
+        <span class="trending-badge"><i class="fa-solid fa-bolt"></i> TRENDING</span>
+        <span class="trending-text" id="trendingTickerText">Loading latest football tactical analysis...</span>
+      </div>
+      <div class="top-bar-social">
+        <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/goalpundit" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="site-logo">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="Goal Pundit" onerror="this.onerror=null; this.src='https://goalpundit.com/wp-content/uploads/2026/07/unnamed-1.webp';">
+        </a>
+      </div>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link ">Home</a>
+        
+        <div class="nav-item-dropdown">
+          <a href="category.html?slug=european-leagues" class="nav-link ">
+            European Leagues <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="category.html?slug=premier-league" class="dropdown-item">Premier League</a>
+            <a href="category.html?slug=la-liga" class="dropdown-item">La Liga</a>
+            <a href="category.html?slug=serie-a" class="dropdown-item">Serie A</a>
+            <a href="category.html?slug=european-leagues" class="dropdown-item">All European Leagues</a>
+          </div>
+        </div>
+
+        <div class="nav-item-dropdown">
+          <a href="category.html?slug=international-tournaments" class="nav-link ">
+            International <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="category.html?slug=uefa-champions-league" class="dropdown-item">UEFA Champions League</a>
+            <a href="category.html?slug=uefa-europa-league" class="dropdown-item">UEFA Europa League</a>
+            <a href="category.html?slug=world-cup-supplement" class="dropdown-item">World Cup Supplement</a>
+            <a href="category.html?slug=international-tournaments" class="dropdown-item">All Tournaments</a>
+          </div>
+        </div>
+
+        <a href="category.html?slug=match-analysis-center" class="nav-link ">Match Analysis</a>
+        <a href="category.html?slug=tactical-lab" class="nav-link ">Tactical Lab</a>
+        <a href="category.html?slug=football-finance" class="nav-link ">Finance</a>
+        <a href="about.html" class="nav-link ">About Us</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="search-trigger-btn" onclick="openSearchModal()" title="Search Articles">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="admin/index.html" class="admin-link-btn" title="CMS Control Panel">
+          <i class="fa-solid fa-lock"></i> Admin
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMobileNav()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <header class="post-header">
+    <div class="container" style="max-width:960px;">
+      <nav class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-angle-right" style="font-size:11px;"></i>
+        <span>Contact Us</span>
+      </nav>
+      <h1 class="post-main-title">Contact Us</h1>
+      <p style="color:var(--text-muted); font-size:15px;">Goal Pundit • Global Football Analysis & Tactical Insights</p>
+    </div>
+  </header>
+
+  <section class="content-layout" style="padding-top:0;">
+    <div class="container" style="max-width:960px;">
+      <div class="post-body">
+        
+<h2>Get In Touch With The Editorial Team</h2>
+<p>Have an inquiry, tactical submission, or partnership proposal? Reach out directly using the form below or via our official email.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:30px 0;">
+  <div style="background:var(--bg-alt); padding:20px; border-radius:var(--radius-md);">
+    <h4><i class="fa-solid fa-envelope" style="color:var(--color-primary);"></i> Editorial Contact</h4>
+    <p style="margin:8px 0 0; color:var(--text-muted);">info@goalpundit.com</p>
+  </div>
+  <div style="background:var(--bg-alt); padding:20px; border-radius:var(--radius-md);">
+    <h4><i class="fa-brands fa-x-twitter" style="color:var(--color-primary);"></i> Social Inquiries</h4>
+    <p style="margin:8px 0 0; color:var(--text-muted);">@goalpundit1977 on X</p>
+  </div>
+</div>
+<form onsubmit="event.preventDefault(); showToast('Your message has been sent to our editorial desk!'); event.target.reset();">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+    <div>
+      <label style="display:block; font-size:13.5px; font-weight:700; margin-bottom:6px;">Your Name *</label>
+      <input type="text" class="form-control" style="width:100%; padding:12px; border:1px solid var(--border-color); border-radius:var(--radius-sm);" required>
+    </div>
+    <div>
+      <label style="display:block; font-size:13.5px; font-weight:700; margin-bottom:6px;">Your Email *</label>
+      <input type="email" class="form-control" style="width:100%; padding:12px; border:1px solid var(--border-color); border-radius:var(--radius-sm);" required>
+    </div>
+  </div>
+  <div style="margin-bottom:16px;">
+    <label style="display:block; font-size:13.5px; font-weight:700; margin-bottom:6px;">Subject *</label>
+    <input type="text" class="form-control" style="width:100%; padding:12px; border:1px solid var(--border-color); border-radius:var(--radius-sm);" required>
+  </div>
+  <div style="margin-bottom:20px;">
+    <label style="display:block; font-size:13.5px; font-weight:700; margin-bottom:6px;">Message *</label>
+    <textarea rows="5" class="form-control" style="width:100%; padding:12px; border:1px solid var(--border-color); border-radius:var(--radius-sm);" required></textarea>
+  </div>
+  <button type="submit" class="btn-primary" style="max-width:220px;"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+</form>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>GOAL PUNDIT</h4>
+          <p>Welcome to Goal Pundit, your premier destination for in-depth football analysis, tactical breakdowns, and comprehensive European & international match coverage. Beyond the scoreline.</p>
+          <div class="top-bar-social" style="margin-top:16px;">
+            <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://instagram.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>LEAGUES & CUPS</h4>
+          <ul class="footer-links">
+            <li><a href="category.html?slug=premier-league"><i class="fa-solid fa-angle-right"></i> Premier League</a></li>
+            <li><a href="category.html?slug=la-liga"><i class="fa-solid fa-angle-right"></i> La Liga</a></li>
+            <li><a href="category.html?slug=serie-a"><i class="fa-solid fa-angle-right"></i> Serie A</a></li>
+            <li><a href="category.html?slug=uefa-champions-league"><i class="fa-solid fa-angle-right"></i> Champions League</a></li>
+            <li><a href="category.html?slug=tactical-lab"><i class="fa-solid fa-angle-right"></i> Tactical Lab</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+            <li><a href="privacy.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="terms.html"><i class="fa-solid fa-angle-right"></i> Terms & Conditions</a></li>
+            <li><a href="admin/index.html"><i class="fa-solid fa-shield-halved"></i> Admin Control Panel</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>TACTICAL DISPATCH</h4>
+          <p>Subscribe to receive weekly masterclasses, match reviews, and geometry diagrams directly in your inbox.</p>
+          <form onsubmit="handleNewsletter(event)">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Copyright &copy; with GoalPundit 2026. Design by <strong>Entejsites Web Design</strong></div>
+        <div>All rights reserved. Powered by Cloudflare Pages High-Speed Edge Network.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="modal-overlay" id="searchModal" onclick="if(event.target===this) closeSearchModal()">
+    <div class="modal-search-card">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted); font-size:18px;"></i>
+        <input type="text" id="modalSearchInput" placeholder="Search 125+ tactical articles..." oninput="handleInstantSearch(this.value)">
+        <button type="button" style="background:none; border:none; font-size:18px; color:var(--text-muted); cursor:pointer;" onclick="closeSearchModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="search-results-list" id="modalSearchResults">
+        <div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">
+          Type keywords to search tactical analysis, teams, players...
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/goalpundit-sync.js"></script>
+  <script>
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('Thank you for subscribing to Goal Pundit Tactical Dispatch!');
+      e.target.reset();
+    }
+    function openSearchModal() {
+      const m = document.getElementById('searchModal');
+      if (m) { m.classList.add('show'); setTimeout(() => document.getElementById('modalSearchInput').focus(), 100); }
+    }
+    function closeSearchModal() {
+      const m = document.getElementById('searchModal');
+      if (m) m.classList.remove('show');
+    }
+    function handleInstantSearch(val) {
+      const resContainer = document.getElementById('modalSearchResults');
+      if (!val || val.trim().length < 2) {
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">Type at least 2 letters to search...</div>';
+        return;
+      }
+      const results = searchPosts(val).slice(0, 6);
+      if (results.length === 0) {
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">No matching articles found for "' + val + '"</div>';
+        return;
+      }
+      resContainer.innerHTML = results.map(p => `
+        <a href="post.html?slug=${p.slug}" class="search-result-item">
+          <h5>${p.title}</h5>
+          <span>${p.category} • ${p.date}</span>
+        </a>
+      `).join('');
+    }
+    function toggleMobileNav() {
+      const nav = document.querySelector('.site-nav');
+      if (nav) {
+        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '100%';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = '#fff';
+        nav.style.padding = '20px';
+        nav.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+      }
+    }
+  </script>
+</body>
+</html>

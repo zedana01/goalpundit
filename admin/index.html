@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goal Pundit CMS | Editorial Control Panel</title>
+  <link rel="icon" type="image/webp" href="../images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Auth PIN Overlay -->
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-card">
+      <div class="sidebar-logo-icon" style="margin:0 auto 16px; width:52px; height:52px; font-size:24px;">
+        <i class="fa-solid fa-futbol"></i>
+      </div>
+      <h2 style="font-size:22px; font-weight:900; margin-bottom:6px;">Goal Pundit CMS</h2>
+      <p style="font-size:13.5px; color:#94a3b8; margin-bottom:14px;">Editorial Control Panel & Tactical Content Engine</p>
+      <div style="background:rgba(5,150,105,0.12); border:1px solid rgba(5,150,105,0.3); padding:8px 14px; border-radius:8px; font-size:12.5px; color:#34d399; margin-bottom:15px;">
+        Default Access PIN: <strong>1234</strong>
+      </div>
+      <form onsubmit="handleAuth(event)">
+        <input type="password" id="pinInput" class="auth-pin-input" placeholder="    " maxlength="6" autofocus autocomplete="off">
+        <div id="authError" style="display:none; color:#ef4444; font-size:13px; font-weight:700; margin-bottom:14px;">
+          <i class="fa-solid fa-circle-exclamation"></i> Incorrect PIN. Please try again.
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px; font-size:15px;">
+          <i class="fa-solid fa-right-to-bracket"></i> Login to CMS Dashboard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon"><i class="fa-solid fa-futbol"></i></div>
+        <div>
+          <h2 style="font-size:16px; font-weight:800;">Goal Pundit</h2>
+          <span style="font-size:12px; color:var(--admin-text-muted);">Editorial CMS</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="menu-link active" onclick="switchTab('tabOverview', this)">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashboard Overview</span>
+        </a>
+
+        <div class="nav-group-title">Articles & Content</div>
+        <a class="menu-link" onclick="switchTab('tabPosts', this)">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>All Articles (125)</span>
+        </a>
+        <a class="menu-link" onclick="switchTab('tabCategories', this)">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Categories (16)</span>
+        </a>
+
+        <div class="nav-group-title">Pages & Customization</div>
+        <a class="menu-link" onclick="switchTab('tabPages', this)">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Static Pages Editor</span>
+        </a>
+        <a class="menu-link" onclick="switchTab('tabSettings', this)">
+          <i class="fa-solid fa-sliders"></i>
+          <span>Site Settings & Ticker</span>
+        </a>
+        <a class="menu-link" onclick="switchTab('tabBackup', this)">
+          <i class="fa-solid fa-database"></i>
+          <span>Backup & Database</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div>
+          <strong style="display:block; font-size:13px;">Mohamed Zeidan</strong>
+          <span style="font-size:11.5px; color:var(--admin-text-muted);">Chief Editor</span>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="handleLogout()" title="Logout">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <h1 class="topbar-title" id="topbarTitle">Dashboard Overview</h1>
+        <div class="topbar-actions">
+          <a href="../index.html" target="_blank" class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Live Site
+          </a>
+          <button class="btn btn-primary btn-sm" onclick="openAddPostModal()">
+            <i class="fa-solid fa-plus"></i> New Article
+          </button>
+        </div>
+      </header>
+
+      <div class="admin-body">
+        <!-- 1. TAB OVERVIEW -->
+        <section id="tabOverview" class="admin-tab-pane">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-icon-box"><i class="fa-solid fa-newspaper"></i></div>
+              <div class="metric-info">
+                <strong id="metricPosts">125</strong>
+                <span>Published Articles</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon-box"><i class="fa-solid fa-layer-group"></i></div>
+              <div class="metric-info">
+                <strong id="metricCats">16</strong>
+                <span>Active Categories</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon-box"><i class="fa-solid fa-cloud"></i></div>
+              <div class="metric-info">
+                <strong style="color:#10b981;">Cloudflare</strong>
+                <span>Pages Edge Network</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon-box"><i class="fa-solid fa-bolt"></i></div>
+              <div class="metric-info">
+                <strong style="color:var(--admin-accent);">100%</strong>
+                <span>Reactive Sync Active</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-panel-header">
+              <h2 class="card-panel-title"><i class="fa-solid fa-bolt"></i> Quick Actions</h2>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <button class="btn btn-primary" onclick="openAddPostModal()">
+                <i class="fa-solid fa-plus"></i> Write New Article
+              </button>
+              <button class="btn btn-outline" onclick="switchTab('tabPosts', document.querySelector('a[onclick*=\'tabPosts\']'))">
+                <i class="fa-solid fa-newspaper"></i> Manage Articles
+              </button>
+              <button class="btn btn-outline" onclick="switchTab('tabCategories', document.querySelector('a[onclick*=\'tabCategories\']'))">
+                <i class="fa-solid fa-layer-group"></i> Manage Categories
+              </button>
+              <button class="btn btn-outline" onclick="switchTab('tabSettings', document.querySelector('a[onclick*=\'tabSettings\']'))">
+                <i class="fa-solid fa-sliders"></i> Edit Ticker & SEO
+              </button>
+              <button class="btn btn-outline" onclick="exportBackup()">
+                <i class="fa-solid fa-download"></i> Download Full Backup (JSON)
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. TAB POSTS -->
+        <section id="tabPosts" class="admin-tab-pane" style="display:none;">
+          <div class="card-panel">
+            <div class="card-panel-header">
+              <h2 class="card-panel-title"><i class="fa-solid fa-newspaper"></i> Articles Directory (125 Posts)</h2>
+              <div style="display:flex; gap:12px;">
+                <input type="text" id="adminPostSearch" class="form-control-admin" placeholder="Search by title or author..." style="width:260px; padding:6px 12px; font-size:13px;" oninput="filterAdminPosts()">
+                <button class="btn btn-primary btn-sm" onclick="openAddPostModal()">
+                  <i class="fa-solid fa-plus"></i> New Article
+                </button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Title & Excerpt</th>
+                    <th>Category</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminPostsTableBody">
+                  <!-- Loaded via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. TAB CATEGORIES -->
+        <section id="tabCategories" class="admin-tab-pane" style="display:none;">
+          <div class="card-panel">
+            <div class="card-panel-header">
+              <h2 class="card-panel-title"><i class="fa-solid fa-layer-group"></i> Categories Manager</h2>
+              <button class="btn btn-primary btn-sm" onclick="openAddCategoryModal()">
+                <i class="fa-solid fa-plus"></i> Add Category
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Category Name</th>
+                    <th>Slug</th>
+                    <th>Articles Count</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminCatsTableBody">
+                  <!-- Loaded via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. TAB PAGES -->
+        <section id="tabPages" class="admin-tab-pane" style="display:none;">
+          <div class="card-panel">
+            <div class="card-panel-header">
+              <h2 class="card-panel-title"><i class="fa-solid fa-file-lines"></i> Static Pages Editor</h2>
+              <div style="display:flex; gap:10px;">
+                <button class="btn btn-primary" onclick="saveActivePageContent()"><i class="fa-solid fa-floppy-disk"></i> Save Page Changes</button>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:8px; margin-bottom:20px;">
+              <button type="button" class="btn btn-sm btn-primary page-nav-btn active" onclick="switchPageEditor('about-us', this)">About Us</button>
+              <button type="button" class="btn btn-sm btn-outline page-nav-btn" onclick="switchPageEditor('contact-us', this)">Contact Us</button>
+              <button type="button" class="btn btn-sm btn-outline page-nav-btn" onclick="switchPageEditor('privacy-policy', this)">Privacy Policy</button>
+              <button type="button" class="btn btn-sm btn-outline page-nav-btn" onclick="switchPageEditor('terms-and-conditions', this)">Terms & Conditions</button>
+            </div>
+
+            <div class="form-group-admin form-full">
+              <label>Page Title *</label>
+              <input type="text" id="editorPageTitle" class="form-control-admin">
+            </div>
+
+            <div class="form-group-admin form-full" style="margin-top:16px;">
+              <label>Page Content (HTML / Rich Text) *</label>
+              <textarea id="editorPageContent" class="form-control-admin" style="min-height:350px; font-family:monospace; font-size:13px;"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. TAB SETTINGS -->
+        <section id="tabSettings" class="admin-tab-pane" style="display:none;">
+          <div class="card-panel">
+            <div class="card-panel-header">
+              <h2 class="card-panel-title"><i class="fa-solid fa-sliders"></i> Global Site Settings & Social</h2>
+            </div>
+            <form onsubmit="saveSettings(event)">
+              <div class="admin-form-grid">
+                <div class="form-group-admin">
+                  <label>Site Title *</label>
+                  <input type="text" id="setSiteTitle" class="form-control-admin" required>
+                </div>
+                <div class="form-group-admin">
+                  <label>Tagline *</label>
+                  <input type="text" id="setTagline" class="form-control-admin" required>
+                </div>
+                <div class="form-group-admin form-full">
+                  <label>SEO Meta Description *</label>
+                  <textarea id="setMetaDesc" class="form-control-admin"></textarea>
+                </div>
+                <div class="form-group-admin form-full">
+                  <label>Logo URL *</label>
+                  <input type="text" id="setLogoUrl" class="form-control-admin">
+                </div>
+                <div class="form-group-admin">
+                  <label>Twitter / X URL *</label>
+                  <input type="text" id="setTwitter" class="form-control-admin">
+                </div>
+                <div class="form-group-admin">
+                  <label>Pinterest URL *</label>
+                  <input type="text" id="setPinterest" class="form-control-admin">
+                </div>
+                <div class="form-group-admin">
+                  <label>Contact Email *</label>
+                  <input type="email" id="setEmail" class="form-control-admin">
+                </div>
+                <div class="form-group-admin">
+                  <label>Copyright Footer Line *</label>
+                  <input type="text" id="setCopyright" class="form-control-admin">
+                </div>
+                <div class="form-group-admin form-full">
+                  <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Global Settings</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- 6. TAB BACKUP -->
+        <section id="tabBackup" class="admin-tab-pane" style="display:none;">
+          <div class="card-panel">
+            <div class="card-panel-header">
+              <h2 class="card-panel-title"><i class="fa-solid fa-database"></i> Backup & Database Management</h2>
+            </div>
+            <p style="font-size:14.5px; color:#cbd5e1; margin-bottom:24px;">
+              Export all 125 articles, categories, static pages, and site configuration as a single portable JSON file. You can restore this backup on any device at any time.
+            </p>
+            <div style="display:flex; gap:16px; flex-wrap:wrap;">
+              <button class="btn btn-primary" onclick="exportBackup()">
+                <i class="fa-solid fa-download"></i> Export Full Backup (JSON)
+              </button>
+
+              <label class="btn btn-outline" style="cursor:pointer;">
+                <i class="fa-solid fa-upload"></i> Restore from JSON
+                <input type="file" accept=".json" style="display:none;" onchange="importBackup(this)">
+              </label>
+
+              <button class="btn btn-danger" onclick="resetAllData()">
+                <i class="fa-solid fa-triangle-exclamation"></i> Reset to Factory Default
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ARTICLE MODAL (Add / Edit) -->
+  <div class="admin-modal-backdrop" id="postModal">
+    <div class="admin-modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 id="postModalTitle" style="font-size:18px; font-weight:900; color:#fff;">New Article</h3>
+        <button type="button" class="btn btn-outline btn-sm" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="postForm" onsubmit="savePost(event)">
+        <input type="hidden" id="postIdInput">
+        <div class="admin-form-grid">
+          <div class="form-group-admin form-full">
+            <label>Article Title *</label>
+            <input type="text" id="postTitleInput" class="form-control-admin" placeholder="e.g. Modern Pressing Traps in European Football" required>
+          </div>
+          <div class="form-group-admin">
+            <label>Slug (URL Friendly) *</label>
+            <input type="text" id="postSlugInput" class="form-control-admin" placeholder="e.g. modern-pressing-traps" required>
+          </div>
+          <div class="form-group-admin">
+            <label>Category *</label>
+            <select id="postCatInput" class="form-control-admin" required></select>
+          </div>
+          <div class="form-group-admin">
+            <label>Author *</label>
+            <input type="text" id="postAuthorInput" class="form-control-admin" value="Mohamed Zeidan" required>
+          </div>
+          <div class="form-group-admin">
+            <label>Reading Time *</label>
+            <input type="text" id="postReadTimeInput" class="form-control-admin" value="5 min read">
+          </div>
+          
+          <div class="form-group-admin form-full">
+            <label>Featured Image URL *</label>
+            <input type="text" id="postImageInput" class="form-control-admin" placeholder="https://..." required>
+            <div class="image-upload-wrapper" style="margin-top:8px;">
+              <input type="file" id="postFileInput" accept="image/*" style="display:none;" onchange="handleFileUpload(this, 'postImageInput', 'postPreviewImg')">
+              <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('postFileInput').click()">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Upload Image from Computer / Phone
+              </button>
+              <div class="image-preview-box">
+                <img id="postPreviewImg" src="" alt="Article Preview">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group-admin form-full">
+            <label>Excerpt / Summary *</label>
+            <textarea id="postExcerptInput" class="form-control-admin" style="min-height:80px;" required></textarea>
+          </div>
+
+          <div class="form-group-admin form-full">
+            <label>Article Full Content (HTML Supported) *</label>
+            <textarea id="postContentInput" class="form-control-admin" style="min-height:220px;" required></textarea>
+          </div>
+
+          <div class="form-group-admin form-full" style="margin-top:15px; display:flex; gap:12px; justify-content:flex-end;">
+            <button type="button" class="btn btn-outline" onclick="closePostModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Article</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CATEGORY MODAL -->
+  <div class="admin-modal-backdrop" id="catModal">
+    <div class="admin-modal-box" style="max-width:540px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 id="catModalTitle" style="font-size:18px; font-weight:900; color:#fff;">New Category</h3>
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeCatModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="catForm" onsubmit="saveCategory(event)">
+        <input type="hidden" id="catIdInput">
+        <div class="admin-form-grid">
+          <div class="form-group-admin form-full">
+            <label>Category Name *</label>
+            <input type="text" id="catNameInput" class="form-control-admin" required>
+          </div>
+          <div class="form-group-admin form-full">
+            <label>Slug *</label>
+            <input type="text" id="catSlugInput" class="form-control-admin" required>
+          </div>
+          <div class="form-group-admin form-full" style="margin-top:15px; display:flex; gap:12px; justify-content:flex-end;">
+            <button type="button" class="btn btn-outline" onclick="closeCatModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Category</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/goalpundit-sync.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
