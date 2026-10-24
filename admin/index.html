@@ -20,16 +20,19 @@
         <i class="fa-solid fa-futbol"></i>
       </div>
       <h2 style="font-size:22px; font-weight:900; margin-bottom:6px;">Goal Pundit CMS</h2>
-      <p style="font-size:13.5px; color:#94a3b8; margin-bottom:14px;">Editorial Control Panel & Tactical Content Engine</p>
-      <div style="background:rgba(5,150,105,0.12); border:1px solid rgba(5,150,105,0.3); padding:8px 14px; border-radius:8px; font-size:12.5px; color:#34d399; margin-bottom:15px;">
-        Default Access PIN: <strong>1234</strong>
-      </div>
+      <p style="font-size:13.5px; color:#94a3b8; margin-bottom:20px;">Editorial Control Panel & Tactical Content Engine</p>
+      
       <form onsubmit="handleAuth(event)">
-        <input type="password" id="pinInput" class="auth-pin-input" placeholder="    " maxlength="6" autofocus autocomplete="off">
-        <div id="authError" style="display:none; color:#ef4444; font-size:13px; font-weight:700; margin-bottom:14px;">
-          <i class="fa-solid fa-circle-exclamation"></i> Incorrect PIN. Please try again.
+        <div class="password-input-wrap" style="margin-bottom:16px;">
+          <input type="password" id="pinInput" class="auth-pin-input" placeholder="Enter Admin Password" autofocus autocomplete="off">
+          <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('pinInput', this)" title="Show/Hide Password">
+            <i class="fa-solid fa-eye"></i>
+          </button>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px; font-size:15px;">
+        <div id="authError" style="display:none; color:#ef4444; font-size:13px; font-weight:700; margin-bottom:14px;">
+          <i class="fa-solid fa-circle-exclamation"></i> Incorrect password. Please try again.
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:13px; font-size:15px;">
           <i class="fa-solid fa-right-to-bracket"></i> Login to CMS Dashboard
         </button>
       </form>
@@ -83,6 +86,9 @@
           <strong style="display:block; font-size:13px;">Mohamed Zeidan</strong>
           <span style="font-size:11.5px; color:var(--admin-text-muted);">Chief Editor</span>
         </div>
+        <button class="btn btn-outline btn-sm" onclick="openPasswordModal()" title="Change Password" style="margin-right:4px;">
+          <i class="fa-solid fa-key"></i>
+        </button>
         <button class="btn btn-outline btn-sm" onclick="handleLogout()" title="Logout">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </button>
@@ -97,6 +103,9 @@
           <a href="../index.html" target="_blank" class="btn btn-outline btn-sm">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> View Live Site
           </a>
+          <button class="btn btn-outline btn-sm" onclick="openPasswordModal()" title="Change Admin Password">
+            <i class="fa-solid fa-key"></i> Change Password
+          </button>
           <button class="btn btn-primary btn-sm" onclick="openAddPostModal()">
             <i class="fa-solid fa-plus"></i> New Article
           </button>
@@ -295,6 +304,21 @@
               </div>
             </form>
           </div>
+
+          <!-- Security & Access Password Card -->
+          <div class="card-panel" style="margin-top:24px;">
+            <div class="card-panel-header">
+              <h2 class="card-panel-title"><i class="fa-solid fa-shield-halved"></i> Admin Security & Access Password</h2>
+            </div>
+            <div style="padding:10px 0;">
+              <p style="font-size:14px; color:#cbd5e1; margin-bottom:16px; line-height:1.6;">
+                Protect your CMS editorial controls by choosing your own custom, strong password. You can update it anytime.
+              </p>
+              <button type="button" class="btn btn-primary" onclick="openPasswordModal()">
+                <i class="fa-solid fa-key"></i> Change Admin Password
+              </button>
+            </div>
+          </div>
         </section>
 
         <!-- 6. TAB BACKUP -->
@@ -385,6 +409,57 @@
           <div class="form-group-admin form-full" style="margin-top:15px; display:flex; gap:12px; justify-content:flex-end;">
             <button type="button" class="btn btn-outline" onclick="closePostModal()">Cancel</button>
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Article</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- CHANGE PASSWORD MODAL -->
+  <div class="admin-modal-backdrop" id="passwordModal">
+    <div class="admin-modal-box" style="max-width:480px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 style="font-size:18px; font-weight:900; color:#fff;">
+          <i class="fa-solid fa-key" style="color:var(--admin-accent); margin-right:8px;"></i> Change Admin Password
+        </h3>
+        <button type="button" class="btn btn-outline btn-sm" onclick="closePasswordModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="passwordForm" onsubmit="handleChangePassword(event)">
+        <div class="admin-form-grid">
+          <div class="form-group-admin form-full">
+            <label>Current Password *</label>
+            <div class="password-input-wrap">
+              <input type="password" id="currentPinInput" class="form-control-admin" placeholder="Enter current password" required autocomplete="current-password">
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('currentPinInput', this)">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="form-group-admin form-full">
+            <label>New Password * (Any length / characters)</label>
+            <div class="password-input-wrap">
+              <input type="password" id="newPinInput" class="form-control-admin" placeholder="Enter new strong password" required minlength="4" autocomplete="new-password">
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('newPinInput', this)">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="form-group-admin form-full">
+            <label>Confirm New Password *</label>
+            <div class="password-input-wrap">
+              <input type="password" id="confirmPinInput" class="form-control-admin" placeholder="Repeat new password" required minlength="4" autocomplete="new-password">
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('confirmPinInput', this)">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div id="passwordError" style="display:none; color:#ef4444; font-size:13px; font-weight:700; grid-column: span 2;">
+            <i class="fa-solid fa-circle-exclamation"></i> <span id="passwordErrorText">Passwords do not match</span>
+          </div>
+          <div class="form-group-admin form-full" style="margin-top:15px; display:flex; gap:12px; justify-content:flex-end;">
+            <button type="button" class="btn btn-outline" onclick="closePasswordModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i> Save New Password</button>
           </div>
         </div>
       </form>

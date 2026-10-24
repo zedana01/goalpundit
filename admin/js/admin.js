@@ -18,11 +18,19 @@ function checkAuthOnLoad() {
   }
 }
 
+const DEFAULT_ADMIN_PIN = '1234';
+
+function getAdminPin() {
+  return localStorage.getItem('goalpundit_admin_pin') || DEFAULT_ADMIN_PIN;
+}
+
 function handleAuth(event) {
   event.preventDefault();
   const pinInput = document.getElementById('pinInput');
   const errorMsg = document.getElementById('authError');
-  if (pinInput && pinInput.value.trim() === '1234') {
+  const entered = pinInput ? pinInput.value.trim() : '';
+
+  if (entered === getAdminPin()) {
     sessionStorage.setItem('goalpundit_admin_auth', 'true');
     localStorage.setItem('goalpundit_admin_auth', 'true');
     const overlay = document.getElementById('authOverlay');
@@ -30,7 +38,77 @@ function handleAuth(event) {
     showToast('Authenticated successfully! Welcome to Goal Pundit CMS.');
   } else {
     if (errorMsg) errorMsg.style.display = 'block';
+    if (pinInput) {
+      pinInput.classList.add('error');
+      setTimeout(() => pinInput.classList.remove('error'), 1000);
+    }
   }
+}
+
+function togglePasswordVisibility(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const isPass = input.type === 'password';
+  input.type = isPass ? 'text' : 'password';
+  const icon = btn.querySelector('i');
+  if (icon) {
+    icon.className = isPass ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+  }
+}
+
+function openPasswordModal() {
+  const m = document.getElementById('passwordModal');
+  const err = document.getElementById('passwordError');
+  const form = document.getElementById('passwordForm');
+  if (form) form.reset();
+  if (err) err.style.display = 'none';
+  if (m) {
+    m.classList.add('show');
+    setTimeout(() => {
+      const firstInput = document.getElementById('currentPinInput');
+      if (firstInput) firstInput.focus();
+    }, 150);
+  }
+}
+
+function closePasswordModal() {
+  const m = document.getElementById('passwordModal');
+  if (m) m.classList.remove('show');
+}
+
+function handleChangePassword(event) {
+  event.preventDefault();
+  const curInput = (document.getElementById('currentPinInput')?.value || '').trim();
+  const newInput = (document.getElementById('newPinInput')?.value || '').trim();
+  const confirmInput = (document.getElementById('confirmPinInput')?.value || '').trim();
+  const errBox = document.getElementById('passwordError');
+  const errText = document.getElementById('passwordErrorText');
+
+  // 1. Verify current password
+  if (curInput !== getAdminPin()) {
+    if (errText) errText.innerText = 'Current password is incorrect! Please verify and re-enter.';
+    if (errBox) errBox.style.display = 'block';
+    return;
+  }
+
+  // 2. Minimum length
+  if (newInput.length < 4) {
+    if (errText) errText.innerText = 'New password must be at least 4 characters long.';
+    if (errBox) errBox.style.display = 'block';
+    return;
+  }
+
+  // 3. Confirm match
+  if (newInput !== confirmInput) {
+    if (errText) errText.innerText = 'New password and confirmation do not match.';
+    if (errBox) errBox.style.display = 'block';
+    return;
+  }
+
+  // 4. Save to localStorage
+  localStorage.setItem('goalpundit_admin_pin', newInput);
+  closePasswordModal();
+  showToast('Admin password updated successfully! You can now use your new password.');
 }
 
 function handleLogout() {

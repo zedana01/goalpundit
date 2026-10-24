@@ -56,16 +56,49 @@ a {
 
 .auth-pin-input {
   width: 100%;
-  padding: 14px;
+  padding: 13px 44px 13px 16px;
   background: #0f172a;
   border: 1px solid var(--admin-border);
   border-radius: 8px;
   color: #fff;
-  font-size: 24px;
-  text-align: center;
-  letter-spacing: 12px;
+  font-size: 15px;
+  letter-spacing: 1px;
   outline: none;
-  margin: 20px 0;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-pin-input:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-wrap .form-control-admin {
+  padding-right: 42px;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px;
+  transition: color 0.2s ease;
+  z-index: 2;
+}
+
+.password-toggle-btn:hover {
+  color: #ffffff;
 }
 
 .auth-pin-input:focus {
