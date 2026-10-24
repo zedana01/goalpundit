@@ -72,9 +72,6 @@
         <button class="search-trigger-btn" onclick="openSearchModal()" title="Search Articles">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <a href="admin/index.html" class="admin-link-btn" title="CMS Control Panel">
-          <i class="fa-solid fa-lock"></i> Admin
-        </a>
       </div>
     </div>
   </header>
@@ -85,32 +82,33 @@
       <!-- Main Content Column -->
       <div class="main-column">
         
-        <!-- Category Top Hero Box (Replaces empty banner with rich layout!) -->
-        <div class="category-hero-box" id="categoryHeroBox">
-          <div class="category-hero-top">
-            <nav class="breadcrumbs" style="color:#cbd5e1; margin-bottom:8px;">
-              <a href="index.html" style="color:#fff;">Home</a>
-              <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
-              <span>Categories</span>
-              <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
-              <span id="catBreadcrumbName" style="color:var(--color-accent); font-weight:700;">Category</span>
-            </nav>
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-              <div>
-                <h1 id="catTitle" style="font-size:26px; font-weight:800; margin-bottom:4px; color:#fff;">Category Title</h1>
-                <p id="catDesc" style="font-size:13.5px; color:#cbd5e1; margin:0; max-width:680px; line-height:1.5;">Category description...</p>
+        <!-- Category Archive Banner Header -->
+        <div class="cat-archive-banner" id="catArchiveBanner">
+          <nav class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-angle-right" style="font-size:10px; margin:0 4px;"></i>
+            <span>Categories</span>
+            <i class="fa-solid fa-angle-right" style="font-size:10px; margin:0 4px;"></i>
+            <span id="catBreadcrumbName" style="color:var(--color-accent); font-weight:700;">Category</span>
+          </nav>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div style="font-size:11px; font-weight:800; color:var(--color-accent); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:4px;">
+                <i class="fa-solid fa-folder-open"></i> Category Archive
               </div>
-              <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.15); padding:8px 14px; border-radius:var(--radius-sm); text-align:right;">
-                <span style="font-size:11px; text-transform:uppercase; color:#cbd5e1; display:block;">Total Analyses</span>
-                <strong id="catArticleCount" style="font-size:18px; color:#fff;">13 Articles</strong>
-              </div>
+              <h1 id="catTitle" style="font-family:var(--font-heading); font-size:26px; font-weight:800; margin-bottom:6px; color:#ffffff;">Category Title</h1>
+              <p id="catDesc" style="font-size:13.5px; color:#cbd5e1; margin:0; max-width:680px; line-height:1.5;">Category description...</p>
+            </div>
+            <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.15); padding:10px 18px; border-radius:var(--radius-sm); text-align:right;">
+              <span style="font-size:11px; text-transform:uppercase; color:#cbd5e1; display:block; letter-spacing:0.5px;">Published Articles</span>
+              <strong id="catArticleCount" style="font-size:20px; color:#ffffff; font-weight:800;">13 Articles</strong>
             </div>
           </div>
+        </div>
 
-          <!-- Featured Lead Story for this Category -->
-          <div class="category-lead-card" id="categoryLeadCard">
-            <!-- Injected dynamically via JS -->
-          </div>
+        <!-- Distinct Featured Lead Story for Category (Never glued to header) -->
+        <div class="cat-lead-card-box" id="categoryLeadCard" style="display:none;">
+          <!-- Injected dynamically via JS -->
         </div>
 
         <!-- Archive Articles Mosaic Grid -->
@@ -256,27 +254,27 @@
 
       // 1. Lead Featured Story for Category
       const leadContainer = document.getElementById('categoryLeadCard');
-      if (allPosts.length > 0) {
+      if (page === 1 && allPosts.length > 0) {
         const lead = allPosts[0];
         leadContainer.innerHTML = `
-          <div class="category-lead-img">
+          <div class="cat-lead-img-wrap">
             <a href="post.html?slug=${lead.slug}">
               <img src="${lead.image}" alt="${lead.title}">
             </a>
             <span class="post-cat-pill" style="position:absolute; top:12px; left:12px; margin:0;">${lead.category}</span>
           </div>
-          <div class="category-lead-content">
-            <span style="font-size:11px; font-weight:800; color:var(--color-accent); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">Featured Masterclass</span>
-            <h2 style="font-size:20px; font-weight:800; line-height:1.35; margin-bottom:10px;">
-              <a href="post.html?slug=${lead.slug}" style="color:var(--color-header);">${lead.title}</a>
+          <div class="cat-lead-content-wrap">
+            <span class="cat-lead-eyebrow"><i class="fa-solid fa-star"></i> Featured Analysis</span>
+            <h2 class="cat-lead-title">
+              <a href="post.html?slug=${lead.slug}">${lead.title}</a>
             </h2>
-            <p style="font-size:13.5px; color:var(--color-text-muted); line-height:1.5; margin-bottom:16px;">
+            <p class="cat-lead-excerpt">
               ${lead.excerpt}
             </p>
-            <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--color-text-light);">
+            <div class="cat-lead-meta">
               <span><i class="fa-regular fa-user"></i> ${lead.author}</span>
               <span><i class="fa-regular fa-calendar"></i> ${lead.date}</span>
-              <a href="post.html?slug=${lead.slug}" style="color:var(--color-accent); font-weight:700;">Read Analysis &rarr;</a>
+              <a href="post.html?slug=${lead.slug}" style="color:var(--color-accent); font-weight:700; margin-left:auto;">Read Analysis &rarr;</a>
             </div>
           </div>
         `;
