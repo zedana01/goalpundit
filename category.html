@@ -21,10 +21,10 @@
         <span class="trending-text" id="trendingTickerText">Loading tactical analysis...</span>
       </div>
       <div class="top-bar-social">
-        <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
-        <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://instagram.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/goalpundit" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
   </div>
@@ -79,29 +79,72 @@
     </div>
   </header>
 
-  <!-- Category Title Banner -->
-  <div style="background:var(--color-header); color:#fff; padding:28px 0; border-bottom:1px solid rgba(0,0,0,0.15);">
-    <div class="container">
-      <nav class="breadcrumbs" style="color:#cbd5e1; margin-bottom:8px;">
-        <a href="index.html" style="color:#fff;">Home</a>
-        <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
-        <span>Categories</span>
-        <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
-        <span id="catBreadcrumbName" style="color:var(--color-accent); font-weight:700;">Category</span>
-      </nav>
-      <h1 id="catTitle" style="font-size:26px; font-weight:800; margin-bottom:6px;">Category Name</h1>
-      <p id="catDesc" style="font-size:14px; color:#cbd5e1; max-width:800px; line-height:1.5;">Category description...</p>
-    </div>
-  </div>
-
   <main class="content-layout">
     <div class="container layout-grid">
+      
+      <!-- Main Content Column -->
       <div class="main-column">
-        <div class="articles-mosaic" id="catArticlesGrid"></div>
-        <div class="pagination-row" id="catPagination"></div>
+        
+        <!-- Category Top Hero Box (Replaces empty banner with rich layout!) -->
+        <div class="category-hero-box" id="categoryHeroBox">
+          <div class="category-hero-top">
+            <nav class="breadcrumbs" style="color:#cbd5e1; margin-bottom:8px;">
+              <a href="index.html" style="color:#fff;">Home</a>
+              <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
+              <span>Categories</span>
+              <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
+              <span id="catBreadcrumbName" style="color:var(--color-accent); font-weight:700;">Category</span>
+            </nav>
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+              <div>
+                <h1 id="catTitle" style="font-size:26px; font-weight:800; margin-bottom:4px; color:#fff;">Category Title</h1>
+                <p id="catDesc" style="font-size:13.5px; color:#cbd5e1; margin:0; max-width:680px; line-height:1.5;">Category description...</p>
+              </div>
+              <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.15); padding:8px 14px; border-radius:var(--radius-sm); text-align:right;">
+                <span style="font-size:11px; text-transform:uppercase; color:#cbd5e1; display:block;">Total Analyses</span>
+                <strong id="catArticleCount" style="font-size:18px; color:#fff;">13 Articles</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Lead Story for this Category -->
+          <div class="category-lead-card" id="categoryLeadCard">
+            <!-- Injected dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Archive Articles Mosaic Grid -->
+        <div class="module-box">
+          <div class="module-bar">
+            <h3 class="module-bar-title" id="catGridHeading"><i class="fa-solid fa-newspaper"></i> Articles Archive</h3>
+            <span style="font-size:12px; color:#cbd5e1;" id="catPageIndicator">Page 1</span>
+          </div>
+          <div class="module-inner-content">
+            <div class="articles-mosaic" id="catArticlesGrid"></div>
+            <div class="pagination-row" id="catPagination"></div>
+          </div>
+        </div>
+
       </div>
 
+      <!-- Right Sidebar Column -->
       <aside class="sidebar">
+        <!-- Author Profile Widget with MALE photo -->
+        <div class="widget-extra" style="text-align:center;">
+          <div class="widget-header-title" style="justify-content:center;">
+            <i class="fa-solid fa-user-pen"></i> Editorial Lead
+          </div>
+          <div class="widget-content-body">
+            <img src="images/author-mohamed-zeidan.jpg" alt="Mohamed Zeidan" style="width:78px; height:78px; border-radius:50%; margin:0 auto 12px; border:2px solid var(--color-header); object-fit:cover;">
+            <h4 style="font-size:16px; font-weight:800; color:var(--color-header); margin-bottom:4px;">Mohamed Zeidan</h4>
+            <p style="font-size:13px; color:var(--color-text-muted); line-height:1.5; margin-bottom:14px;">Chief Football Tactician at Goal Pundit. Decoding transitions, rest-defense architectures, and pressing traps.</p>
+            <div style="display:flex; justify-content:center; gap:8px;">
+              <a href="https://x.com/goalpundit1977" target="_blank" class="btn-page" style="padding:5px 12px; font-size:12px;"><i class="fa-brands fa-x-twitter"></i> Follow</a>
+              <a href="about.html" class="btn-page" style="padding:5px 12px; font-size:12px;">Bio</a>
+            </div>
+          </div>
+        </div>
+
         <div class="widget-extra">
           <div class="widget-header-title">
             <i class="fa-solid fa-layer-group"></i> All Categories
@@ -120,6 +163,7 @@
           </div>
         </div>
       </aside>
+
     </div>
   </main>
 
@@ -138,6 +182,7 @@
             <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
             <li><a href="privacy.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
             <li><a href="terms.html"><i class="fa-solid fa-angle-right"></i> Terms</a></li>
+            <li><a href="admin/index.html"><i class="fa-solid fa-lock"></i> Admin CMS</a></li>
           </ul>
         </div>
         <div>
@@ -159,11 +204,29 @@
     </div>
   </footer>
 
+  <!-- Search Modal -->
+  <div class="modal-overlay" id="searchModal" onclick="if(event.target===this) closeSearchModal()">
+    <div class="modal-search-card">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass" style="color:var(--color-text-muted); font-size:18px;"></i>
+        <input type="text" id="modalSearchInput" placeholder="Search 125+ tactical articles..." oninput="handleInstantSearch(this.value)">
+        <button type="button" style="background:none; border:none; font-size:18px; color:var(--color-text-muted); cursor:pointer;" onclick="closeSearchModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="search-results-list" id="modalSearchResults">
+        <div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">
+          Type keywords to search tactical analysis, teams, players...
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/goalpundit-sync.js"></script>
   <script>
     let currentCatSlug = 'all';
     let currentCatPage = 1;
-    const catPerPage = 9;
+    const catPerPage = 6;
 
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -186,13 +249,50 @@
       document.getElementById('catTitle').innerText = catObj.name;
       document.getElementById('catDesc').innerText = catObj.description || 'Deep tactical previews, player spotlights, and geometry breakdowns.';
 
-      const posts = getPostsByCategory(slug);
+      const allPosts = getPostsByCategory(slug);
+      document.getElementById('catArticleCount').innerText = allPosts.length + ' Articles';
+      document.getElementById('catGridHeading').innerHTML = '<i class="fa-solid fa-newspaper"></i> ' + catObj.name + ' Archive';
+      document.getElementById('catPageIndicator').innerText = 'Page ' + page;
+
+      // 1. Lead Featured Story for Category
+      const leadContainer = document.getElementById('categoryLeadCard');
+      if (allPosts.length > 0) {
+        const lead = allPosts[0];
+        leadContainer.innerHTML = `
+          <div class="category-lead-img">
+            <a href="post.html?slug=${lead.slug}">
+              <img src="${lead.image}" alt="${lead.title}">
+            </a>
+            <span class="post-cat-pill" style="position:absolute; top:12px; left:12px; margin:0;">${lead.category}</span>
+          </div>
+          <div class="category-lead-content">
+            <span style="font-size:11px; font-weight:800; color:var(--color-accent); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">Featured Masterclass</span>
+            <h2 style="font-size:20px; font-weight:800; line-height:1.35; margin-bottom:10px;">
+              <a href="post.html?slug=${lead.slug}" style="color:var(--color-header);">${lead.title}</a>
+            </h2>
+            <p style="font-size:13.5px; color:var(--color-text-muted); line-height:1.5; margin-bottom:16px;">
+              ${lead.excerpt}
+            </p>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--color-text-light);">
+              <span><i class="fa-regular fa-user"></i> ${lead.author}</span>
+              <span><i class="fa-regular fa-calendar"></i> ${lead.date}</span>
+              <a href="post.html?slug=${lead.slug}" style="color:var(--color-accent); font-weight:700;">Read Analysis &rarr;</a>
+            </div>
+          </div>
+        `;
+        leadContainer.style.display = 'grid';
+      } else {
+        leadContainer.style.display = 'none';
+      }
+
+      // 2. Remaining Posts in Grid (skip lead if page 1)
+      const gridPosts = page === 1 ? allPosts.slice(1) : allPosts;
       const start = (page - 1) * catPerPage;
-      const pagePosts = posts.slice(start, start + catPerPage);
+      const pagePosts = (page === 1 ? allPosts.slice(1, 1 + catPerPage) : allPosts.slice(start, start + catPerPage));
       const grid = document.getElementById('catArticlesGrid');
 
       if (pagePosts.length === 0) {
-        grid.innerHTML = '<div style="padding:40px; text-align:center; color:var(--color-text-muted); font-size:15px;">No articles found in this category.</div>';
+        grid.innerHTML = '<div style="padding:40px; text-align:center; color:var(--color-text-muted); font-size:15px;">No further articles in this archive.</div>';
       } else {
         grid.innerHTML = pagePosts.map(p => `
           <article class="mosaic-card">
@@ -217,7 +317,7 @@
       }
 
       // Pagination
-      const totalPages = Math.ceil(posts.length / catPerPage);
+      const totalPages = Math.ceil(allPosts.length / catPerPage);
       const pagContainer = document.getElementById('catPagination');
       if (pagContainer && totalPages > 1) {
         let html = '';
@@ -233,7 +333,7 @@
         pagContainer.innerHTML = html;
       }
 
-      // Sidebar
+      // Sidebar Categories
       const catList = document.getElementById('sidebarCatList');
       if (catList && categories) {
         catList.innerHTML = categories.map(c => `
@@ -256,6 +356,33 @@
           </div>
         `).join('');
       }
+    }
+
+    function openSearchModal() {
+      const m = document.getElementById('searchModal');
+      if (m) { m.classList.add('show'); setTimeout(() => document.getElementById('modalSearchInput').focus(), 100); }
+    }
+    function closeSearchModal() {
+      const m = document.getElementById('searchModal');
+      if (m) m.classList.remove('show');
+    }
+    function handleInstantSearch(val) {
+      const resContainer = document.getElementById('modalSearchResults');
+      if (!val || val.trim().length < 2) {
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">Type at least 2 letters to search...</div>';
+        return;
+      }
+      const results = searchPosts(val).slice(0, 6);
+      if (results.length === 0) {
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">No matching articles found for "' + val + '"</div>';
+        return;
+      }
+      resContainer.innerHTML = results.map(p => `
+        <a href="post.html?slug=${p.slug}" class="search-result-item" style="display:block; padding:12px 18px; border-bottom:1px solid #f1f5f9;">
+          <h5 style="font-size:14px; color:var(--color-header); margin-bottom:4px;">${p.title}</h5>
+          <span style="font-size:12px; color:var(--color-accent);">${p.category} • ${p.date}</span>
+        </a>
+      `).join('');
     }
   </script>
 </body>
