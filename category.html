@@ -7,25 +7,24 @@
   <link rel="icon" type="image/webp" href="images/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-  
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="trending-ticker">
-        <span class="trending-badge"><i class="fa-solid fa-bolt"></i> TRENDING</span>
-        <span class="trending-text" id="trendingTickerText">Loading latest football tactical analysis...</span>
+        <span class="trending-label"><i class="fa-solid fa-bolt"></i> TRENDING</span>
+        <span class="trending-text" id="trendingTickerText">Loading tactical analysis...</span>
       </div>
       <div class="top-bar-social">
-        <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
-        <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://instagram.com/goalpundit" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
   </div>
@@ -40,11 +39,11 @@
       </div>
 
       <nav class="site-nav">
-        <a href="index.html" class="nav-link ">Home</a>
-        
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
         <div class="nav-item-dropdown">
-          <a href="category.html?slug=european-leagues" class="nav-link ">
-            European Leagues <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          <a href="category.html?slug=european-leagues" class="nav-link">
+            European Leagues <i class="fa-solid fa-angle-down" style="font-size:10px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="category.html?slug=premier-league" class="dropdown-item">Premier League</a>
@@ -53,24 +52,20 @@
             <a href="category.html?slug=european-leagues" class="dropdown-item">All European Leagues</a>
           </div>
         </div>
-
         <div class="nav-item-dropdown">
-          <a href="category.html?slug=international-tournaments" class="nav-link ">
-            International <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          <a href="category.html?slug=international-tournaments" class="nav-link">
+            International <i class="fa-solid fa-angle-down" style="font-size:10px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="category.html?slug=uefa-champions-league" class="dropdown-item">UEFA Champions League</a>
             <a href="category.html?slug=uefa-europa-league" class="dropdown-item">UEFA Europa League</a>
             <a href="category.html?slug=world-cup-supplement" class="dropdown-item">World Cup Supplement</a>
-            <a href="category.html?slug=international-tournaments" class="dropdown-item">All Tournaments</a>
           </div>
         </div>
-
-        <a href="category.html?slug=match-analysis-center" class="nav-link ">Match Analysis</a>
-        <a href="category.html?slug=tactical-lab" class="nav-link ">Tactical Lab</a>
-        <a href="category.html?slug=football-finance" class="nav-link ">Finance</a>
-        <a href="about.html" class="nav-link ">About Us</a>
-        <a href="contact.html" class="nav-link ">Contact</a>
+        <a href="category.html?slug=match-analysis-center" class="nav-link">Match Analysis</a>
+        <a href="category.html?slug=tactical-lab" class="nav-link">Tactical Lab</a>
+        <a href="category.html?slug=football-finance" class="nav-link">Finance</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
       <div class="header-actions">
@@ -80,127 +75,89 @@
         <a href="admin/index.html" class="admin-link-btn" title="CMS Control Panel">
           <i class="fa-solid fa-lock"></i> Admin
         </a>
-        <button class="mobile-menu-btn" onclick="toggleMobileNav()">
-          <i class="fa-solid fa-bars"></i>
-        </button>
       </div>
     </div>
   </header>
 
-
-  <section class="post-header" style="background:var(--color-secondary); color:#fff;">
+  <!-- Category Title Banner -->
+  <div style="background:var(--color-header); color:#fff; padding:28px 0; border-bottom:1px solid rgba(0,0,0,0.15);">
     <div class="container">
-      <nav class="breadcrumbs" style="color:#94a3b8;">
-        <a href="index.html" style="color:#cbd5e1;">Home</a>
-        <i class="fa-solid fa-angle-right" style="font-size:11px;"></i>
+      <nav class="breadcrumbs" style="color:#cbd5e1; margin-bottom:8px;">
+        <a href="index.html" style="color:#fff;">Home</a>
+        <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
         <span>Categories</span>
-        <i class="fa-solid fa-angle-right" style="font-size:11px;"></i>
-        <span id="catBreadcrumbName" style="color:#fff;">Premier League</span>
+        <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
+        <span id="catBreadcrumbName" style="color:var(--color-accent); font-weight:700;">Category</span>
       </nav>
-
-      <span class="post-cat-badge" id="catBadge">Category Archive</span>
-      <h1 class="post-main-title" id="catTitle" style="color:#fff; margin-bottom:12px;">Category Title</h1>
-      <p id="catDesc" style="font-size:16px; color:#cbd5e1; max-width:800px; line-height:1.6;">
-        Explore all comprehensive tactical analyses and match breakdowns in this category.
-      </p>
-    </div>
-  </section>
-
-  <section class="content-layout">
-    <div class="container layout-grid">
-      <main class="main-column">
-        <div class="article-grid" id="catArticlesGrid"></div>
-        <div class="pagination-bar" id="catPagination"></div>
-      </main>
-
-      <aside class="sidebar">
-        <div class="widget">
-          <h3 class="widget-title"><i class="fa-solid fa-layer-group"></i> All Categories</h3>
-          <ul class="cat-list" id="sidebarCatList"></ul>
-        </div>
-
-        <div class="widget">
-          <h3 class="widget-title"><i class="fa-solid fa-fire"></i> Trending Stories</h3>
-          <div class="trending-list" id="catSidebarTrending"></div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>GOAL PUNDIT</h4>
-          <p>Welcome to Goal Pundit, your premier destination for in-depth football analysis, tactical breakdowns, and comprehensive European & international match coverage. Beyond the scoreline.</p>
-          <div class="top-bar-social" style="margin-top:16px;">
-            <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
-            <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://instagram.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>LEAGUES & CUPS</h4>
-          <ul class="footer-links">
-            <li><a href="category.html?slug=premier-league"><i class="fa-solid fa-angle-right"></i> Premier League</a></li>
-            <li><a href="category.html?slug=la-liga"><i class="fa-solid fa-angle-right"></i> La Liga</a></li>
-            <li><a href="category.html?slug=serie-a"><i class="fa-solid fa-angle-right"></i> Serie A</a></li>
-            <li><a href="category.html?slug=uefa-champions-league"><i class="fa-solid fa-angle-right"></i> Champions League</a></li>
-            <li><a href="category.html?slug=tactical-lab"><i class="fa-solid fa-angle-right"></i> Tactical Lab</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>QUICK LINKS</h4>
-          <ul class="footer-links">
-            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
-            <li><a href="privacy.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
-            <li><a href="terms.html"><i class="fa-solid fa-angle-right"></i> Terms & Conditions</a></li>
-            <li><a href="admin/index.html"><i class="fa-solid fa-shield-halved"></i> Admin Control Panel</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>TACTICAL DISPATCH</h4>
-          <p>Subscribe to receive weekly masterclasses, match reviews, and geometry diagrams directly in your inbox.</p>
-          <form onsubmit="handleNewsletter(event)">
-            <input type="email" class="newsletter-input" placeholder="Your email address" required>
-            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>Copyright &copy; with GoalPundit 2026. Design by <strong>Entejsites Web Design</strong></div>
-        <div>All rights reserved. Powered by Cloudflare Pages High-Speed Edge Network.</div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Search Modal -->
-  <div class="modal-overlay" id="searchModal" onclick="if(event.target===this) closeSearchModal()">
-    <div class="modal-search-card">
-      <div class="search-input-box">
-        <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted); font-size:18px;"></i>
-        <input type="text" id="modalSearchInput" placeholder="Search 125+ tactical articles..." oninput="handleInstantSearch(this.value)">
-        <button type="button" style="background:none; border:none; font-size:18px; color:var(--text-muted); cursor:pointer;" onclick="closeSearchModal()">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="search-results-list" id="modalSearchResults">
-        <div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">
-          Type keywords to search tactical analysis, teams, players...
-        </div>
-      </div>
+      <h1 id="catTitle" style="font-size:26px; font-weight:800; margin-bottom:6px;">Category Name</h1>
+      <p id="catDesc" style="font-size:14px; color:#cbd5e1; max-width:800px; line-height:1.5;">Category description...</p>
     </div>
   </div>
 
+  <main class="content-layout">
+    <div class="container layout-grid">
+      <div class="main-column">
+        <div class="articles-mosaic" id="catArticlesGrid"></div>
+        <div class="pagination-row" id="catPagination"></div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="widget-extra">
+          <div class="widget-header-title">
+            <i class="fa-solid fa-layer-group"></i> All Categories
+          </div>
+          <div class="widget-content-body">
+            <div class="cat-sidebar-menu" id="sidebarCatList"></div>
+          </div>
+        </div>
+
+        <div class="widget-extra">
+          <div class="widget-header-title">
+            <i class="fa-solid fa-fire"></i> Popular Stories
+          </div>
+          <div class="widget-content-body">
+            <div class="trending-post-list" id="catSidebarTrending"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns-row">
+        <div>
+          <h4 class="footer-widget-title">GoalPundit</h4>
+          <p class="footer-widget-text">Welcome to GoalPundit, your premier destination for in-depth football analysis, tactical breakdowns, and comprehensive match coverage.</p>
+        </div>
+        <div>
+          <h4 class="footer-widget-title">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+            <li><a href="privacy.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="terms.html"><i class="fa-solid fa-angle-right"></i> Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-widget-title">Leagues</h4>
+          <ul class="footer-nav-list">
+            <li><a href="category.html?slug=premier-league"><i class="fa-solid fa-angle-right"></i> Premier League</a></li>
+            <li><a href="category.html?slug=la-liga"><i class="fa-solid fa-angle-right"></i> La Liga</a></li>
+            <li><a href="category.html?slug=serie-a"><i class="fa-solid fa-angle-right"></i> Serie A</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-widget-title">Contact</h4>
+          <div style="font-size:13px; color:#cbd5e1;">Email: info@goalpundit.com</div>
+        </div>
+      </div>
+      <div class="footer-copyright-bar">
+        <div>Copyright &copy; with GoalPundit 2026. Design by <strong>Entejsites Web Design</strong></div>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/goalpundit-sync.js"></script>
   <script>
@@ -235,22 +192,22 @@
       const grid = document.getElementById('catArticlesGrid');
 
       if (pagePosts.length === 0) {
-        grid.innerHTML = '<div style="padding:40px; text-align:center; color:var(--text-muted); font-size:16px;">No articles found in this category.</div>';
+        grid.innerHTML = '<div style="padding:40px; text-align:center; color:var(--color-text-muted); font-size:15px;">No articles found in this category.</div>';
       } else {
         grid.innerHTML = pagePosts.map(p => `
-          <article class="article-card">
-            <div class="article-thumb">
+          <article class="mosaic-card">
+            <div class="mosaic-thumb">
               <a href="post.html?slug=${p.slug}">
                 <img src="${p.image}" alt="${p.title}" loading="lazy">
               </a>
-              <span class="post-cat-badge" style="position:absolute; top:12px; left:12px; margin:0;">${p.category}</span>
+              <span class="post-cat-pill" style="position:absolute; top:10px; left:10px; margin:0;">${p.category}</span>
             </div>
-            <div class="article-content">
-              <h3 class="article-title">
+            <div class="mosaic-body">
+              <h3 class="mosaic-title">
                 <a href="post.html?slug=${p.slug}">${p.title}</a>
               </h3>
-              <p class="article-excerpt">${p.excerpt}</p>
-              <div class="article-footer">
+              <p class="mosaic-excerpt">${p.excerpt}</p>
+              <div class="mosaic-footer">
                 <span><i class="fa-regular fa-user"></i> ${p.author}</span>
                 <span><i class="fa-regular fa-calendar"></i> ${p.date}</span>
               </div>
@@ -265,13 +222,13 @@
       if (pagContainer && totalPages > 1) {
         let html = '';
         if (page > 1) {
-          html += `<button class="page-btn" onclick="renderCategory('${slug}', ${page - 1})">Previous</button>`;
+          html += `<button class="btn-page" onclick="renderCategory('${slug}', ${page - 1})">Previous</button>`;
         }
         for (let i = 1; i <= Math.min(5, totalPages); i++) {
-          html += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="renderCategory('${slug}', ${i})">${i}</button>`;
+          html += `<button class="btn-page ${i === page ? 'active' : ''}" onclick="renderCategory('${slug}', ${i})">${i}</button>`;
         }
         if (page < totalPages) {
-          html += `<button class="page-btn" onclick="renderCategory('${slug}', ${page + 1})">Next</button>`;
+          html += `<button class="btn-page" onclick="renderCategory('${slug}', ${page + 1})">Next</button>`;
         }
         pagContainer.innerHTML = html;
       }
@@ -280,79 +237,24 @@
       const catList = document.getElementById('sidebarCatList');
       if (catList && categories) {
         catList.innerHTML = categories.map(c => `
-          <li class="cat-list-item">
-            <a href="category.html?slug=${c.slug}" style="${c.slug === slug ? 'background:var(--color-primary); color:#fff;' : ''}">
-              <span>${c.name}</span>
-              <span class="cat-count">${c.count}</span>
-            </a>
-          </li>
+          <a href="category.html?slug=${c.slug}" class="cat-sidebar-link" style="${c.slug === slug ? 'color:var(--color-accent); font-weight:800;' : ''}">
+            <span>${c.name}</span>
+            <span class="cat-pill-count">${c.count}</span>
+          </a>
         `).join('');
       }
 
       const trendList = document.getElementById('catSidebarTrending');
       if (trendList) {
         trendList.innerHTML = (data.posts || []).slice(0, 5).map((t, idx) => `
-          <div class="trending-item">
-            <span class="trending-rank">0${idx + 1}</span>
-            <div class="trending-item-content">
+          <div class="trending-post-row">
+            <span class="trending-num">0${idx + 1}</span>
+            <div class="trending-row-info">
               <h4><a href="post.html?slug=${t.slug}">${t.title}</a></h4>
-              <div class="trending-item-meta">${t.category} • ${t.date}</div>
+              <div class="trending-row-meta">${t.category} • ${t.date}</div>
             </div>
           </div>
         `).join('');
-      }
-    }
-
-    function handleNewsletter(e) {
-      e.preventDefault();
-      showToast('Thank you for subscribing to Goal Pundit Tactical Dispatch!');
-      e.target.reset();
-    }
-
-    function openSearchModal() {
-      const m = document.getElementById('searchModal');
-      if (m) {
-        m.classList.add('show');
-        setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
-      }
-    }
-
-    function closeSearchModal() {
-      const m = document.getElementById('searchModal');
-      if (m) m.classList.remove('show');
-    }
-
-    function handleInstantSearch(val) {
-      const resContainer = document.getElementById('modalSearchResults');
-      if (!val || val.trim().length < 2) {
-        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">Type at least 2 letters to search...</div>';
-        return;
-      }
-      const results = searchPosts(val).slice(0, 6);
-      if (results.length === 0) {
-        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">No matching articles found for "' + val + '"</div>';
-        return;
-      }
-      resContainer.innerHTML = results.map(p => `
-        <a href="post.html?slug=${p.slug}" class="search-result-item">
-          <h5>${p.title}</h5>
-          <span>${p.category} • ${p.date}</span>
-        </a>
-      `).join('');
-    }
-
-    function toggleMobileNav() {
-      const nav = document.querySelector('.site-nav');
-      if (nav) {
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        nav.style.flexDirection = 'column';
-        nav.style.position = 'absolute';
-        nav.style.top = '100%';
-        nav.style.left = '0';
-        nav.style.right = '0';
-        nav.style.background = '#fff';
-        nav.style.padding = '20px';
-        nav.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
       }
     }
   </script>

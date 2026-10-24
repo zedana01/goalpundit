@@ -8,19 +8,18 @@
   <link rel="icon" type="image/webp" href="images/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-  
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="trending-ticker">
-        <span class="trending-badge"><i class="fa-solid fa-bolt"></i> TRENDING</span>
-        <span class="trending-text" id="trendingTickerText">Loading latest football tactical analysis...</span>
+        <span class="trending-label"><i class="fa-solid fa-bolt"></i> TRENDING</span>
+        <span class="trending-text" id="trendingTickerText">Loading tactical analysis...</span>
       </div>
       <div class="top-bar-social">
         <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
@@ -42,10 +41,10 @@
 
       <nav class="site-nav">
         <a href="index.html" class="nav-link active">Home</a>
-        
+        <a href="about.html" class="nav-link">About Us</a>
         <div class="nav-item-dropdown">
-          <a href="category.html?slug=european-leagues" class="nav-link ">
-            European Leagues <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          <a href="category.html?slug=european-leagues" class="nav-link">
+            European Leagues <i class="fa-solid fa-angle-down" style="font-size:10px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="category.html?slug=premier-league" class="dropdown-item">Premier League</a>
@@ -54,24 +53,20 @@
             <a href="category.html?slug=european-leagues" class="dropdown-item">All European Leagues</a>
           </div>
         </div>
-
         <div class="nav-item-dropdown">
-          <a href="category.html?slug=international-tournaments" class="nav-link ">
-            International <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          <a href="category.html?slug=international-tournaments" class="nav-link">
+            International <i class="fa-solid fa-angle-down" style="font-size:10px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="category.html?slug=uefa-champions-league" class="dropdown-item">UEFA Champions League</a>
             <a href="category.html?slug=uefa-europa-league" class="dropdown-item">UEFA Europa League</a>
             <a href="category.html?slug=world-cup-supplement" class="dropdown-item">World Cup Supplement</a>
-            <a href="category.html?slug=international-tournaments" class="dropdown-item">All Tournaments</a>
           </div>
         </div>
-
-        <a href="category.html?slug=match-analysis-center" class="nav-link ">Match Analysis</a>
-        <a href="category.html?slug=tactical-lab" class="nav-link ">Tactical Lab</a>
-        <a href="category.html?slug=football-finance" class="nav-link ">Finance</a>
-        <a href="about.html" class="nav-link ">About Us</a>
-        <a href="contact.html" class="nav-link ">Contact</a>
+        <a href="category.html?slug=match-analysis-center" class="nav-link">Match Analysis</a>
+        <a href="category.html?slug=tactical-lab" class="nav-link">Tactical Lab</a>
+        <a href="category.html?slug=football-finance" class="nav-link">Finance</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
       <div class="header-actions">
@@ -88,109 +83,118 @@
     </div>
   </header>
 
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-grid" id="homeHeroGrid">
-        <!-- Rendered dynamically from data -->
-      </div>
-    </div>
-  </section>
-
   <!-- Main Content Layout -->
-  <section class="content-layout">
+  <main class="content-layout">
     <div class="container layout-grid">
-      <!-- Main Content Column -->
-      <main class="main-column">
+      
+      <!-- Left Content Column -->
+      <div class="main-column">
         
-        <!-- Premier League Spotlight -->
-        <div class="module-section">
-          <div class="module-header">
-            <h2 class="module-title">Premier League Insights</h2>
-            <a href="category.html?slug=premier-league" class="module-view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Hero Section -->
+        <div class="hero-wrapper">
+          <div class="hero-layout-grid" id="homeHeroGrid"></div>
+        </div>
+
+        <!-- Premier League Module -->
+        <div class="module-box">
+          <div class="module-bar">
+            <h3 class="module-bar-title"><i class="fa-solid fa-shield-halved"></i> Premier League Analysis</h3>
+            <a href="category.html?slug=premier-league">View All <i class="fa-solid fa-angle-right"></i></a>
           </div>
-          <div class="article-grid" id="gridPremierLeague">
-            <!-- Loaded via JS -->
+          <div class="module-inner-content">
+            <div class="articles-mosaic" id="gridPremierLeague"></div>
           </div>
         </div>
 
-        <!-- Tactical Lab Banner / Section -->
-        <div class="module-section" style="background:#ffffff; padding:24px; border-radius:var(--radius-md); border:1px solid var(--border-color); margin-bottom:40px;">
-          <div class="module-header" style="border-bottom-color:var(--color-primary);">
-            <h2 class="module-title" style="color:var(--color-primary-dark);"><i class="fa-solid fa-chess-board"></i> Tactical Lab Masterclasses</h2>
-            <a href="category.html?slug=tactical-lab" class="module-view-all">Explore Lab <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Tactical Lab Module -->
+        <div class="module-box">
+          <div class="module-bar" style="background:#2b3843; border-top-color:#38bdf8;">
+            <h3 class="module-bar-title"><i class="fa-solid fa-chess-board"></i> Tactical Lab Masterclasses</h3>
+            <a href="category.html?slug=tactical-lab">Explore Lab <i class="fa-solid fa-angle-right"></i></a>
           </div>
-          <div class="article-grid" id="gridTacticalLab">
-            <!-- Loaded via JS -->
+          <div class="module-inner-content">
+            <div class="articles-mosaic" id="gridTacticalLab"></div>
           </div>
         </div>
 
-        <!-- Latest Global Analysis Feed -->
-        <div class="module-section">
-          <div class="module-header">
-            <h2 class="module-title">Latest Football Analysis</h2>
-            <span style="font-size:13px; color:var(--text-muted);">Updated daily</span>
+        <!-- Latest Articles Feed with Pagination -->
+        <div class="module-box">
+          <div class="module-bar">
+            <h3 class="module-bar-title"><i class="fa-solid fa-newspaper"></i> Latest Global Football Analysis</h3>
+            <span style="font-size:12px; color:#cbd5e1;">Daily Dispatch</span>
           </div>
-          <div class="article-grid" id="gridLatestPosts">
-            <!-- Loaded via JS -->
+          <div class="module-inner-content">
+            <div class="articles-mosaic" id="gridLatestPosts"></div>
+            <div class="pagination-row" id="latestPagination"></div>
           </div>
-          <div class="pagination-bar" id="latestPagination"></div>
         </div>
 
-      </main>
+      </div>
 
-      <!-- Sidebar Column -->
+      <!-- Right Sidebar Column -->
       <aside class="sidebar">
         <!-- Author Profile Widget -->
-        <div class="widget author-box-widget">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Mohamed Zeidan" class="author-avatar">
-          <h3 class="author-name">Mohamed Zeidan</h3>
-          <p class="author-desc">Chief Tactical Analyst at Goal Pundit. Specializing in European transitions, pressing geometries, and rest-defense blueprints.</p>
-          <div style="display:flex; justify-content:center; gap:12px;">
-            <a href="https://x.com/goalpundit1977" target="_blank" class="page-btn" style="padding:6px 14px; font-size:12px;"><i class="fa-brands fa-x-twitter"></i> Follow</a>
-            <a href="about.html" class="page-btn" style="padding:6px 14px; font-size:12px;">Editorial Bio</a>
+        <div class="widget-extra" style="text-align:center;">
+          <div class="widget-header-title" style="justify-content:center;">
+            <i class="fa-solid fa-user-pen"></i> Editorial Lead
+          </div>
+          <div class="widget-content-body">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Mohamed Zeidan" style="width:78px; height:78px; border-radius:50%; margin:0 auto 12px; border:2px solid var(--color-header); object-fit:cover;">
+            <h4 style="font-size:16px; font-weight:800; color:var(--color-header); margin-bottom:4px;">Mohamed Zeidan</h4>
+            <p style="font-size:13px; color:var(--color-text-muted); line-height:1.5; margin-bottom:14px;">Chief Football Tactician at Goal Pundit. Decoding transitions, rest-defense architectures, and pressing traps.</p>
+            <div style="display:flex; justify-content:center; gap:8px;">
+              <a href="https://x.com/goalpundit1977" target="_blank" class="btn-page" style="padding:5px 12px; font-size:12px;"><i class="fa-brands fa-x-twitter"></i> Follow</a>
+              <a href="about.html" class="btn-page" style="padding:5px 12px; font-size:12px;">Bio</a>
+            </div>
           </div>
         </div>
 
-        <!-- Trending Now Widget -->
-        <div class="widget">
-          <h3 class="widget-title"><i class="fa-solid fa-fire" style="color:var(--color-accent);"></i> Trending Now</h3>
-          <div class="trending-list" id="sidebarTrendingList">
-            <!-- Loaded via JS -->
+        <!-- Popular Stories Widget -->
+        <div class="widget-extra">
+          <div class="widget-header-title">
+            <i class="fa-solid fa-fire"></i> Popular Stories
+          </div>
+          <div class="widget-content-body">
+            <div class="trending-post-list" id="sidebarTrendingList"></div>
           </div>
         </div>
 
         <!-- Categories Widget -->
-        <div class="widget">
-          <h3 class="widget-title"><i class="fa-solid fa-layer-group"></i> Categories</h3>
-          <ul class="cat-list" id="sidebarCatList">
-            <!-- Loaded via JS -->
-          </ul>
+        <div class="widget-extra">
+          <div class="widget-header-title">
+            <i class="fa-solid fa-layer-group"></i> Categories
+          </div>
+          <div class="widget-content-body">
+            <div class="cat-sidebar-menu" id="sidebarCatList"></div>
+          </div>
         </div>
 
-        <!-- Newsletter Widget -->
-        <div class="widget newsletter-widget">
-          <h3 class="widget-title"><i class="fa-solid fa-envelope-open-text"></i> Tactical Dispatch</h3>
-          <p style="font-size:13px; color:#cbd5e1; margin-bottom:14px;">Get our comprehensive weekly match previews and geometry diagrams straight to your inbox.</p>
-          <form onsubmit="handleNewsletter(event)">
-            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
-            <button type="submit" class="btn-primary" style="background:#10b981;">Join 12,000+ Readers</button>
-          </form>
+        <!-- Tactical Dispatch Widget -->
+        <div class="widget-extra">
+          <div class="widget-header-title" style="background:#2b3843;">
+            <i class="fa-solid fa-envelope-open-text"></i> Tactical Dispatch
+          </div>
+          <div class="widget-content-body">
+            <p style="font-size:13px; color:var(--color-text-muted); margin-bottom:12px;">Get our comprehensive weekly match previews and geometry diagrams straight to your inbox.</p>
+            <form onsubmit="event.preventDefault(); showToast('Subscribed to Goal Pundit Dispatch!'); event.target.reset();">
+              <input type="email" placeholder="Your email address" style="width:100%; padding:10px 12px; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:13px; margin-bottom:10px;" required>
+              <button type="submit" style="width:100%; padding:10px; background:var(--color-header); color:#fff; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer;">Subscribe Free</button>
+            </form>
+          </div>
         </div>
       </aside>
-    </div>
-  </section>
 
-  
+    </div>
+  </main>
+
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>GOAL PUNDIT</h4>
-          <p>Welcome to Goal Pundit, your premier destination for in-depth football analysis, tactical breakdowns, and comprehensive European & international match coverage. Beyond the scoreline.</p>
-          <div class="top-bar-social" style="margin-top:16px;">
+      <div class="footer-columns-row">
+        <div>
+          <h4 class="footer-widget-title">GoalPundit</h4>
+          <p class="footer-widget-text">Welcome to GoalPundit, your premier destination for in-depth football analysis, tactical breakdowns, and comprehensive European & international match coverage. Beyond the scoreline.</p>
+          <div class="top-bar-social" style="margin-top:14px;">
             <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
             <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
@@ -198,42 +202,38 @@
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>LEAGUES & CUPS</h4>
-          <ul class="footer-links">
-            <li><a href="category.html?slug=premier-league"><i class="fa-solid fa-angle-right"></i> Premier League</a></li>
-            <li><a href="category.html?slug=la-liga"><i class="fa-solid fa-angle-right"></i> La Liga</a></li>
-            <li><a href="category.html?slug=serie-a"><i class="fa-solid fa-angle-right"></i> Serie A</a></li>
-            <li><a href="category.html?slug=uefa-champions-league"><i class="fa-solid fa-angle-right"></i> Champions League</a></li>
-            <li><a href="category.html?slug=tactical-lab"><i class="fa-solid fa-angle-right"></i> Tactical Lab</a></li>
+        <div>
+          <h4 class="footer-widget-title">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Contact Us</a></li>
+            <li><a href="privacy.html"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Privacy Policy</a></li>
+            <li><a href="terms.html"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Terms & Conditions</a></li>
+            <li><a href="admin/index.html"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin CMS</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>QUICK LINKS</h4>
-          <ul class="footer-links">
-            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
-            <li><a href="privacy.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
-            <li><a href="terms.html"><i class="fa-solid fa-angle-right"></i> Terms & Conditions</a></li>
-            <li><a href="admin/index.html"><i class="fa-solid fa-shield-halved"></i> Admin Control Panel</a></li>
+        <div>
+          <h4 class="footer-widget-title">Leagues</h4>
+          <ul class="footer-nav-list">
+            <li><a href="category.html?slug=premier-league"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Premier League</a></li>
+            <li><a href="category.html?slug=la-liga"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> La Liga</a></li>
+            <li><a href="category.html?slug=serie-a"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Serie A</a></li>
+            <li><a href="category.html?slug=uefa-champions-league"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Champions League</a></li>
+            <li><a href="category.html?slug=tactical-lab"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Tactical Lab</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>TACTICAL DISPATCH</h4>
-          <p>Subscribe to receive weekly masterclasses, match reviews, and geometry diagrams directly in your inbox.</p>
-          <form onsubmit="handleNewsletter(event)">
-            <input type="email" class="newsletter-input" placeholder="Your email address" required>
-            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
-          </form>
+        <div>
+          <h4 class="footer-widget-title">Tactical Bulletin</h4>
+          <p class="footer-widget-text">Directly from our tacticians to your screen. Clear geometric blueprints and player heatmaps.</p>
+          <div style="font-size:13px; color:#cbd5e1;">Editorial Desk: info@goalpundit.com</div>
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-copyright-bar">
         <div>Copyright &copy; with GoalPundit 2026. Design by <strong>Entejsites Web Design</strong></div>
-        <div>All rights reserved. Powered by Cloudflare Pages High-Speed Edge Network.</div>
+        <div>All rights reserved. Deployed on Cloudflare Pages.</div>
       </div>
     </div>
   </footer>
@@ -242,20 +242,19 @@
   <div class="modal-overlay" id="searchModal" onclick="if(event.target===this) closeSearchModal()">
     <div class="modal-search-card">
       <div class="search-input-box">
-        <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted); font-size:18px;"></i>
+        <i class="fa-solid fa-magnifying-glass" style="color:var(--color-text-muted); font-size:18px;"></i>
         <input type="text" id="modalSearchInput" placeholder="Search 125+ tactical articles..." oninput="handleInstantSearch(this.value)">
-        <button type="button" style="background:none; border:none; font-size:18px; color:var(--text-muted); cursor:pointer;" onclick="closeSearchModal()">
+        <button type="button" style="background:none; border:none; font-size:18px; color:var(--color-text-muted); cursor:pointer;" onclick="closeSearchModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div class="search-results-list" id="modalSearchResults">
-        <div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">
+        <div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">
           Type keywords to search tactical analysis, teams, players...
         </div>
       </div>
     </div>
   </div>
-
 
   <script src="js/goalpundit-sync.js"></script>
   <script>
@@ -270,113 +269,106 @@
       const data = getGoalPunditData();
       const posts = data.posts || [];
 
-      // 1. Hero Grid (Post 0 is main, Posts 1 & 2 are side sub)
+      // Hero Grid
       const heroGrid = document.getElementById('homeHeroGrid');
       if (heroGrid && posts.length >= 3) {
         const pMain = posts[0];
         const pSub1 = posts[1];
         const pSub2 = posts[2];
         heroGrid.innerHTML = `
-          <div class="hero-card hero-main">
+          <div class="hero-lead-card">
             <img src="${pMain.image}" alt="${pMain.title}">
-            <div class="hero-overlay">
-              <span class="post-cat-badge">${pMain.category}</span>
-              <h1 class="hero-title"><a href="post.html?slug=${pMain.slug}">${pMain.title}</a></h1>
-              <div class="hero-meta">
+            <div class="hero-lead-overlay">
+              <span class="post-cat-pill">${pMain.category}</span>
+              <h1 class="hero-card-title"><a href="post.html?slug=${pMain.slug}">${pMain.title}</a></h1>
+              <div style="font-size:12px; color:#cbd5e1; display:flex; gap:14px;">
                 <span><i class="fa-regular fa-user"></i> ${pMain.author}</span>
                 <span><i class="fa-regular fa-calendar"></i> ${pMain.date}</span>
-                <span><i class="fa-regular fa-clock"></i> ${pMain.readTime}</span>
+                <span><i class="fa-regular fa-clock"></i> ${pMain.readTime || '5 min read'}</span>
               </div>
             </div>
           </div>
-          <div class="hero-side-grid">
-            <div class="hero-card hero-sub">
+          <div class="hero-side-stack">
+            <div class="hero-small-card">
               <img src="${pSub1.image}" alt="${pSub1.title}">
-              <div class="hero-overlay">
-                <span class="post-cat-badge">${pSub1.category}</span>
-                <h3 class="hero-title"><a href="post.html?slug=${pSub1.slug}">${pSub1.title}</a></h3>
-                <div class="hero-meta">
-                  <span>${pSub1.date}</span>
-                </div>
+              <div class="hero-small-overlay">
+                <span class="post-cat-pill" style="font-size:10px; padding:2px 6px;">${pSub1.category}</span>
+                <h3 class="hero-card-title" style="font-size:15px; margin-bottom:4px;"><a href="post.html?slug=${pSub1.slug}">${pSub1.title}</a></h3>
+                <div style="font-size:11.5px; color:#cbd5e1;">${pSub1.date}</div>
               </div>
             </div>
-            <div class="hero-card hero-sub">
+            <div class="hero-small-card">
               <img src="${pSub2.image}" alt="${pSub2.title}">
-              <div class="hero-overlay">
-                <span class="post-cat-badge">${pSub2.category}</span>
-                <h3 class="hero-title"><a href="post.html?slug=${pSub2.slug}">${pSub2.title}</a></h3>
-                <div class="hero-meta">
-                  <span>${pSub2.date}</span>
-                </div>
+              <div class="hero-small-overlay">
+                <span class="post-cat-pill" style="font-size:10px; padding:2px 6px;">${pSub2.category}</span>
+                <h3 class="hero-card-title" style="font-size:15px; margin-bottom:4px;"><a href="post.html?slug=${pSub2.slug}">${pSub2.title}</a></h3>
+                <div style="font-size:11.5px; color:#cbd5e1;">${pSub2.date}</div>
               </div>
             </div>
           </div>
         `;
       }
 
-      // 2. Premier League Grid (3 posts)
+      // Premier League Grid
       const plGrid = document.getElementById('gridPremierLeague');
       if (plGrid) {
         const plPosts = posts.filter(p => p.categorySlug === 'premier-league' || (p.categories && p.categories.includes('Premier League'))).slice(0, 3);
         const displayPl = plPosts.length >= 3 ? plPosts : posts.slice(3, 6);
-        plGrid.innerHTML = displayPl.map(p => createArticleCard(p)).join('');
+        plGrid.innerHTML = displayPl.map(p => createCardHtml(p)).join('');
       }
 
-      // 3. Tactical Lab Grid (3 posts)
+      // Tactical Lab Grid
       const tlGrid = document.getElementById('gridTacticalLab');
       if (tlGrid) {
         const tlPosts = posts.filter(p => p.categorySlug === 'tactical-lab' || (p.categories && p.categories.includes('Tactical Lab'))).slice(0, 3);
         const displayTl = tlPosts.length >= 3 ? tlPosts : posts.slice(6, 9);
-        tlGrid.innerHTML = displayTl.map(p => createArticleCard(p)).join('');
+        tlGrid.innerHTML = displayTl.map(p => createCardHtml(p)).join('');
       }
 
-      // 4. Latest Posts with Pagination
+      // Latest Posts Feed
       renderLatestPosts(1);
 
-      // 5. Sidebar Trending
+      // Sidebar Trending
       const trendingContainer = document.getElementById('sidebarTrendingList');
       if (trendingContainer) {
-        const trending = posts.slice(0, 5);
-        trendingContainer.innerHTML = trending.map((p, idx) => `
-          <div class="trending-item">
-            <span class="trending-rank">0${idx + 1}</span>
-            <div class="trending-item-content">
+        trendingContainer.innerHTML = posts.slice(0, 5).map((p, idx) => `
+          <div class="trending-post-row">
+            <span class="trending-num">0${idx + 1}</span>
+            <div class="trending-row-info">
               <h4><a href="post.html?slug=${p.slug}">${p.title}</a></h4>
-              <div class="trending-item-meta">${p.category} • ${p.date}</div>
+              <div class="trending-row-meta">${p.category} • ${p.date}</div>
             </div>
           </div>
         `).join('');
       }
 
-      // 6. Sidebar Categories
+      // Sidebar Categories
       const catList = document.getElementById('sidebarCatList');
       if (catList && data.categories) {
         catList.innerHTML = data.categories.slice(0, 8).map(c => `
-          <li class="cat-list-item">
-            <a href="category.html?slug=${c.slug}">
-              <span>${c.name}</span>
-              <span class="cat-count">${c.count}</span>
-            </a>
-          </li>
+          <a href="category.html?slug=${c.slug}" class="cat-sidebar-link">
+            <span>${c.name}</span>
+            <span class="cat-pill-count">${c.count}</span>
+          </a>
         `).join('');
       }
     }
 
-    function createArticleCard(p) {
+    function createCardHtml(p) {
       return `
-        <article class="article-card">
-          <div class="article-thumb">
+        <article class="mosaic-card">
+          <div class="mosaic-thumb">
             <a href="post.html?slug=${p.slug}">
               <img src="${p.image}" alt="${p.title}" loading="lazy">
             </a>
-            <span class="post-cat-badge" style="position:absolute; top:12px; left:12px; margin:0;">${p.category}</span>
+            <span class="post-cat-pill" style="position:absolute; top:10px; left:10px; margin:0;">${p.category}</span>
           </div>
-          <div class="article-content">
-            <h3 class="article-title">
+          <div class="mosaic-body">
+            <h3 class="mosaic-title">
               <a href="post.html?slug=${p.slug}">${p.title}</a>
             </h3>
-            <p class="article-excerpt">${p.excerpt}</p>
-            <div class="article-footer">
+            <p class="mosaic-excerpt">${p.excerpt}</p>
+            <div class="mosaic-footer">
               <span><i class="fa-regular fa-user"></i> ${p.author}</span>
               <span><i class="fa-regular fa-calendar"></i> ${p.date}</span>
             </div>
@@ -388,12 +380,12 @@
     function renderLatestPosts(page) {
       currentLatestPage = page;
       const data = getGoalPunditData();
-      const posts = (data.posts || []).slice(9); // Skip top hero & featured
+      const posts = (data.posts || []).slice(9);
       const start = (page - 1) * postsPerPage;
       const pagePosts = posts.slice(start, start + postsPerPage);
       const container = document.getElementById('gridLatestPosts');
       if (container) {
-        container.innerHTML = pagePosts.map(p => createArticleCard(p)).join('');
+        container.innerHTML = pagePosts.map(p => createCardHtml(p)).join('');
       }
 
       // Pagination
@@ -402,68 +394,56 @@
       if (pagContainer) {
         let html = '';
         if (page > 1) {
-          html += `<button class="page-btn" onclick="renderLatestPosts(${page - 1})">Previous</button>`;
+          html += `<button class="btn-page" onclick="renderLatestPosts(${page - 1})">Previous</button>`;
         }
         for (let i = 1; i <= Math.min(5, totalPages); i++) {
-          html += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="renderLatestPosts(${i})">${i}</button>`;
+          html += `<button class="btn-page ${i === page ? 'active' : ''}" onclick="renderLatestPosts(${i})">${i}</button>`;
         }
         if (page < totalPages) {
-          html += `<button class="page-btn" onclick="renderLatestPosts(${page + 1})">Next</button>`;
+          html += `<button class="btn-page" onclick="renderLatestPosts(${page + 1})">Next</button>`;
         }
         pagContainer.innerHTML = html;
       }
     }
 
-    function handleNewsletter(e) {
-      e.preventDefault();
-      showToast('Thank you for subscribing to Goal Pundit Tactical Dispatch!');
-      e.target.reset();
-    }
-
     function openSearchModal() {
       const m = document.getElementById('searchModal');
-      if (m) {
-        m.classList.add('show');
-        setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
-      }
+      if (m) { m.classList.add('show'); setTimeout(() => document.getElementById('modalSearchInput').focus(), 100); }
     }
-
     function closeSearchModal() {
       const m = document.getElementById('searchModal');
       if (m) m.classList.remove('show');
     }
-
     function handleInstantSearch(val) {
       const resContainer = document.getElementById('modalSearchResults');
       if (!val || val.trim().length < 2) {
-        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">Type at least 2 letters to search...</div>';
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">Type at least 2 letters to search...</div>';
         return;
       }
       const results = searchPosts(val).slice(0, 6);
       if (results.length === 0) {
-        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">No matching articles found for "' + val + '"</div>';
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">No matching articles found for "' + val + '"</div>';
         return;
       }
       resContainer.innerHTML = results.map(p => `
-        <a href="post.html?slug=${p.slug}" class="search-result-item">
-          <h5>${p.title}</h5>
-          <span>${p.category} • ${p.date}</span>
+        <a href="post.html?slug=${p.slug}" class="search-result-item" style="display:block; padding:12px 18px; border-bottom:1px solid #f1f5f9;">
+          <h5 style="font-size:14px; color:var(--color-header); margin-bottom:4px;">${p.title}</h5>
+          <span style="font-size:12px; color:var(--color-accent);">${p.category} • ${p.date}</span>
         </a>
       `).join('');
     }
-
     function toggleMobileNav() {
       const nav = document.querySelector('.site-nav');
       if (nav) {
         nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
         nav.style.flexDirection = 'column';
         nav.style.position = 'absolute';
-        nav.style.top = '100%';
+        nav.style.top = '74px';
         nav.style.left = '0';
         nav.style.right = '0';
-        nav.style.background = '#fff';
-        nav.style.padding = '20px';
-        nav.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+        nav.style.background = 'var(--color-header)';
+        nav.style.padding = '16px';
+        nav.style.height = 'auto';
       }
     }
   </script>

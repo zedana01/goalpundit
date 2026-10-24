@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Article | Goal Pundit</title>
+  <title>Tactical Analysis | Goal Pundit</title>
   <link rel="icon" type="image/webp" href="images/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-  
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="trending-ticker">
-        <span class="trending-badge"><i class="fa-solid fa-bolt"></i> TRENDING</span>
-        <span class="trending-text" id="trendingTickerText">Loading latest football tactical analysis...</span>
+        <span class="trending-label"><i class="fa-solid fa-bolt"></i> TRENDING</span>
+        <span class="trending-text" id="trendingTickerText">Loading tactical analysis...</span>
       </div>
       <div class="top-bar-social">
         <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
@@ -40,11 +39,11 @@
       </div>
 
       <nav class="site-nav">
-        <a href="index.html" class="nav-link ">Home</a>
-        
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
         <div class="nav-item-dropdown">
-          <a href="category.html?slug=european-leagues" class="nav-link ">
-            European Leagues <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          <a href="category.html?slug=european-leagues" class="nav-link">
+            European Leagues <i class="fa-solid fa-angle-down" style="font-size:10px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="category.html?slug=premier-league" class="dropdown-item">Premier League</a>
@@ -53,24 +52,20 @@
             <a href="category.html?slug=european-leagues" class="dropdown-item">All European Leagues</a>
           </div>
         </div>
-
         <div class="nav-item-dropdown">
-          <a href="category.html?slug=international-tournaments" class="nav-link ">
-            International <i class="fa-solid fa-angle-down" style="font-size:11px;"></i>
+          <a href="category.html?slug=international-tournaments" class="nav-link">
+            International <i class="fa-solid fa-angle-down" style="font-size:10px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="category.html?slug=uefa-champions-league" class="dropdown-item">UEFA Champions League</a>
             <a href="category.html?slug=uefa-europa-league" class="dropdown-item">UEFA Europa League</a>
             <a href="category.html?slug=world-cup-supplement" class="dropdown-item">World Cup Supplement</a>
-            <a href="category.html?slug=international-tournaments" class="dropdown-item">All Tournaments</a>
           </div>
         </div>
-
-        <a href="category.html?slug=match-analysis-center" class="nav-link ">Match Analysis</a>
-        <a href="category.html?slug=tactical-lab" class="nav-link ">Tactical Lab</a>
-        <a href="category.html?slug=football-finance" class="nav-link ">Finance</a>
-        <a href="about.html" class="nav-link ">About Us</a>
-        <a href="contact.html" class="nav-link ">Contact</a>
+        <a href="category.html?slug=match-analysis-center" class="nav-link">Match Analysis</a>
+        <a href="category.html?slug=tactical-lab" class="nav-link">Tactical Lab</a>
+        <a href="category.html?slug=football-finance" class="nav-link">Finance</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
       <div class="header-actions">
@@ -87,99 +82,129 @@
     </div>
   </header>
 
-
-  <!-- Post Header -->
-  <header class="post-header">
-    <div class="container" style="max-width:960px;">
-      <nav class="breadcrumbs">
-        <a href="index.html">Home</a>
-        <i class="fa-solid fa-angle-right" style="font-size:11px;"></i>
-        <a href="#" id="postBreadcrumbCategory">Tactical Analysis</a>
-        <i class="fa-solid fa-angle-right" style="font-size:11px;"></i>
-        <span id="postBreadcrumbTitle">Article</span>
-      </nav>
-
-      <span class="post-cat-badge" id="postCategoryBadge">Category</span>
-      <h1 class="post-main-title" id="postTitle">Loading Article Title...</h1>
-
-      <div class="post-meta-bar">
-        <span><i class="fa-solid fa-user-pen"></i> <strong id="postAuthor">Mohamed Zeidan</strong></span>
-        <span><i class="fa-regular fa-calendar"></i> <span id="postDate">2026-10-20</span></span>
-        <span><i class="fa-regular fa-clock"></i> <span id="postReadTime">5 min read</span></span>
-        <span><i class="fa-solid fa-share-nodes"></i> Verified Analysis</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- Post Body & Sidebar Layout -->
-  <section class="content-layout" style="padding-top:0;">
+  <!-- Post Content Layout -->
+  <main class="content-layout">
     <div class="container layout-grid">
-      <!-- Article Column -->
+      
+      <!-- Article Column (Title, Meta, Image and Text all aligned together!) -->
       <article class="main-column">
-        <div class="post-featured-image-box">
-          <img src="" id="postFeaturedImage" alt="Featured Image">
-        </div>
+        <div class="post-article-card">
+          
+          <!-- Breadcrumbs -->
+          <nav class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
+            <a href="#" id="postBreadcrumbCategory">Tactical Analysis</a>
+            <i class="fa-solid fa-angle-right" style="font-size:10px;"></i>
+            <span id="postBreadcrumbTitle">Article</span>
+          </nav>
 
-        <div class="post-body" id="postContent">
-          <!-- Article HTML rendered here -->
-        </div>
-
-        <!-- Social Share Bar -->
-        <div class="post-share-bar">
-          <strong style="margin-right:12px; font-size:14px; text-transform:uppercase;">Share Analysis:</strong>
-          <button class="share-btn share-twitter" onclick="shareArticle('twitter')"><i class="fa-brands fa-x-twitter"></i> Tweet</button>
-          <button class="share-btn share-facebook" onclick="shareArticle('facebook')"><i class="fa-brands fa-facebook"></i> Facebook</button>
-          <button class="share-btn share-whatsapp" onclick="shareArticle('whatsapp')"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
-          <button class="share-btn share-copy" onclick="copyArticleLink()"><i class="fa-solid fa-link"></i> Copy</button>
-        </div>
-
-        <!-- Author Box -->
-        <div class="widget" style="margin-top:30px; display:flex; gap:20px; align-items:center;">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Mohamed Zeidan" style="width:80px; height:80px; border-radius:var(--radius-full); object-fit:cover;">
+          <!-- Category Pill -->
           <div>
-            <h4 style="font-size:18px; font-weight:800; margin-bottom:6px;" id="postAuthorBioName">Mohamed Zeidan</h4>
-            <p style="font-size:14px; color:var(--text-muted); line-height:1.5;">Lead Football Tactician & Analyst at Goal Pundit. Decoding tactical trends, pressing structures, and positional play geometries across Europe's top five leagues.</p>
+            <span class="post-cat-pill" id="postCategoryBadge">Football Analysis</span>
           </div>
+
+          <!-- Main Article Title (Starts exactly from beginning of card & image) -->
+          <h1 class="post-title-main" id="postTitle">Loading Article...</h1>
+
+          <!-- Meta Bar (Posted by, Date, Read time) -->
+          <div class="post-meta-details">
+            <span>Posted by <strong id="postAuthor">Mohamed Zeidan</strong></span>
+            <span><i class="fa-regular fa-calendar"></i> <span id="postDate">2026-10-20</span></span>
+            <span><i class="fa-regular fa-clock"></i> <span id="postReadTime">5 min read</span></span>
+            <span style="color:var(--color-accent); font-weight:700;"><i class="fa-solid fa-circle-check"></i> Tactical Verified</span>
+          </div>
+
+          <!-- Featured Image (Spans 100% of the card, aligned with title above!) -->
+          <div class="post-featured-thumb">
+            <img src="" id="postFeaturedImage" alt="Article Featured Image">
+          </div>
+
+          <!-- Full Content HTML -->
+          <div class="post-entry-content" id="postContent">
+            <!-- Article Body injected dynamically -->
+          </div>
+
+          <!-- Social Share Strip -->
+          <div class="post-share-strip">
+            <span style="font-size:13px; font-weight:800; text-transform:uppercase; color:var(--color-header); margin-right:6px;">Share Article:</span>
+            <button class="share-btn share-twitter" onclick="shareArticle('twitter')"><i class="fa-brands fa-x-twitter"></i> Tweet</button>
+            <button class="share-btn share-facebook" onclick="shareArticle('facebook')"><i class="fa-brands fa-facebook"></i> Facebook</button>
+            <button class="share-btn share-whatsapp" onclick="shareArticle('whatsapp')"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
+            <button class="share-btn share-copy" onclick="copyArticleLink()"><i class="fa-solid fa-link"></i> Copy Link</button>
+          </div>
+
+          <!-- Author Bio -->
+          <div style="background:var(--bg-alt); padding:20px; border-radius:var(--radius-sm); border:1px solid var(--border-color); display:flex; gap:18px; align-items:center;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80" alt="Mohamed Zeidan" style="width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid var(--color-header);">
+            <div>
+              <h4 style="font-size:16px; font-weight:800; color:var(--color-header); margin-bottom:4px;" id="postAuthorBioName">Mohamed Zeidan</h4>
+              <p style="font-size:13px; color:var(--color-text-muted); line-height:1.5;">Lead Football Tactician at Goal Pundit. Decoding tactical trends, pressing structures, and positional play geometries across Europe's top five leagues.</p>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Related Articles -->
-        <div class="module-section" style="margin-top:40px;">
-          <div class="module-header">
-            <h2 class="module-title">Related Tactical Analyses</h2>
+        <!-- Related Tactical Analyses Module -->
+        <div class="module-box">
+          <div class="module-bar">
+            <h3 class="module-bar-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> Related Tactical Analyses</h3>
           </div>
-          <div class="article-grid" id="gridRelatedPosts"></div>
+          <div class="module-inner-content">
+            <div class="articles-mosaic" id="gridRelatedPosts"></div>
+          </div>
         </div>
 
       </article>
 
       <!-- Sidebar -->
       <aside class="sidebar">
-        <div class="widget">
-          <h3 class="widget-title"><i class="fa-solid fa-fire" style="color:var(--color-accent);"></i> Popular Stories</h3>
-          <div class="trending-list" id="postSidebarTrending"></div>
+        <!-- Popular Stories Widget -->
+        <div class="widget-extra">
+          <div class="widget-header-title">
+            <i class="fa-solid fa-fire"></i> Popular Stories
+          </div>
+          <div class="widget-content-body">
+            <div class="trending-post-list" id="postSidebarTrending"></div>
+          </div>
         </div>
 
-        <div class="widget newsletter-widget">
-          <h3 class="widget-title"><i class="fa-solid fa-paper-plane"></i> Don't Miss Out</h3>
-          <p style="font-size:13px; color:#cbd5e1; margin-bottom:14px;">Receive next week's Champions League tactical breakdown 24 hours before kickoff.</p>
-          <form onsubmit="handleNewsletter(event)">
-            <input type="email" class="newsletter-input" placeholder="Your email address" required>
-            <button type="submit" class="btn-primary" style="background:#10b981;">Subscribe Free</button>
-          </form>
+        <!-- Categories Widget -->
+        <div class="widget-extra">
+          <div class="widget-header-title">
+            <i class="fa-solid fa-layer-group"></i> Categories
+          </div>
+          <div class="widget-content-body">
+            <div class="cat-sidebar-menu" id="postSidebarCats"></div>
+          </div>
+        </div>
+
+        <!-- Tactical Dispatch Widget -->
+        <div class="widget-extra">
+          <div class="widget-header-title" style="background:#2b3843;">
+            <i class="fa-solid fa-envelope"></i> Tactical Dispatch
+          </div>
+          <div class="widget-content-body">
+            <p style="font-size:13px; color:var(--color-text-muted); margin-bottom:12px;">Get our comprehensive weekly match previews and geometry diagrams straight to your inbox.</p>
+            <form onsubmit="event.preventDefault(); showToast('Subscribed to Goal Pundit Dispatch!'); event.target.reset();">
+              <input type="email" placeholder="Your email address" style="width:100%; padding:10px 12px; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:13px; margin-bottom:10px;" required>
+              <button type="submit" style="width:100%; padding:10px; background:var(--color-header); color:#fff; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer;">Subscribe</button>
+            </form>
+          </div>
         </div>
       </aside>
-    </div>
-  </section>
 
-  
+    </div>
+  </main>
+
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>GOAL PUNDIT</h4>
-          <p>Welcome to Goal Pundit, your premier destination for in-depth football analysis, tactical breakdowns, and comprehensive European & international match coverage. Beyond the scoreline.</p>
-          <div class="top-bar-social" style="margin-top:16px;">
+      <div class="footer-columns-row">
+        <div>
+          <h4 class="footer-widget-title">GoalPundit</h4>
+          <p class="footer-widget-text">Welcome to GoalPundit, your premier destination for in-depth football analysis, tactical breakdowns, and comprehensive European & international match coverage. Beyond the scoreline.</p>
+          <div class="top-bar-social" style="margin-top:14px;">
             <a href="https://x.com/goalpundit1977" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.pinterest.com/goalpundit1977/" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
             <a href="https://facebook.com/goalpundit" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
@@ -187,42 +212,38 @@
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>LEAGUES & CUPS</h4>
-          <ul class="footer-links">
-            <li><a href="category.html?slug=premier-league"><i class="fa-solid fa-angle-right"></i> Premier League</a></li>
-            <li><a href="category.html?slug=la-liga"><i class="fa-solid fa-angle-right"></i> La Liga</a></li>
-            <li><a href="category.html?slug=serie-a"><i class="fa-solid fa-angle-right"></i> Serie A</a></li>
-            <li><a href="category.html?slug=uefa-champions-league"><i class="fa-solid fa-angle-right"></i> Champions League</a></li>
-            <li><a href="category.html?slug=tactical-lab"><i class="fa-solid fa-angle-right"></i> Tactical Lab</a></li>
+        <div>
+          <h4 class="footer-widget-title">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about-us.html" onclick="location.href='about.html'; return false;"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> About Us</a></li>
+            <li><a href="contact-us.html" onclick="location.href='contact.html'; return false;"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Contact Us</a></li>
+            <li><a href="privacy-policy.html" onclick="location.href='privacy.html'; return false;"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Privacy Policy</a></li>
+            <li><a href="terms.html"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Terms & Conditions</a></li>
+            <li><a href="admin/index.html"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin CMS</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>QUICK LINKS</h4>
-          <ul class="footer-links">
-            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
-            <li><a href="privacy.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
-            <li><a href="terms.html"><i class="fa-solid fa-angle-right"></i> Terms & Conditions</a></li>
-            <li><a href="admin/index.html"><i class="fa-solid fa-shield-halved"></i> Admin Control Panel</a></li>
+        <div>
+          <h4 class="footer-widget-title">Leagues</h4>
+          <ul class="footer-nav-list">
+            <li><a href="category.html?slug=premier-league"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Premier League</a></li>
+            <li><a href="category.html?slug=la-liga"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> La Liga</a></li>
+            <li><a href="category.html?slug=serie-a"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Serie A</a></li>
+            <li><a href="category.html?slug=uefa-champions-league"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Champions League</a></li>
+            <li><a href="category.html?slug=tactical-lab"><i class="fa-solid fa-angle-right" style="font-size:11px;"></i> Tactical Lab</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>TACTICAL DISPATCH</h4>
-          <p>Subscribe to receive weekly masterclasses, match reviews, and geometry diagrams directly in your inbox.</p>
-          <form onsubmit="handleNewsletter(event)">
-            <input type="email" class="newsletter-input" placeholder="Your email address" required>
-            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
-          </form>
+        <div>
+          <h4 class="footer-widget-title">Tactical Bulletin</h4>
+          <p class="footer-widget-text">Directly from our tacticians to your screen. Clear geometric blueprints and player heatmaps.</p>
+          <div style="font-size:13px; color:#cbd5e1;">Editorial Desk: info@goalpundit.com</div>
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-copyright-bar">
         <div>Copyright &copy; with GoalPundit 2026. Design by <strong>Entejsites Web Design</strong></div>
-        <div>All rights reserved. Powered by Cloudflare Pages High-Speed Edge Network.</div>
+        <div>All rights reserved. Deployed on Cloudflare Pages.</div>
       </div>
     </div>
   </footer>
@@ -231,20 +252,19 @@
   <div class="modal-overlay" id="searchModal" onclick="if(event.target===this) closeSearchModal()">
     <div class="modal-search-card">
       <div class="search-input-box">
-        <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted); font-size:18px;"></i>
+        <i class="fa-solid fa-magnifying-glass" style="color:var(--color-text-muted); font-size:18px;"></i>
         <input type="text" id="modalSearchInput" placeholder="Search 125+ tactical articles..." oninput="handleInstantSearch(this.value)">
-        <button type="button" style="background:none; border:none; font-size:18px; color:var(--text-muted); cursor:pointer;" onclick="closeSearchModal()">
+        <button type="button" style="background:none; border:none; font-size:18px; color:var(--color-text-muted); cursor:pointer;" onclick="closeSearchModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div class="search-results-list" id="modalSearchResults">
-        <div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">
+        <div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">
           Type keywords to search tactical analysis, teams, players...
         </div>
       </div>
     </div>
   </div>
-
 
   <script src="js/goalpundit-sync.js"></script>
   <script>
@@ -261,7 +281,6 @@
         currentPost = getPostById(id);
       }
 
-      // Fallback to first post if invalid param
       if (!currentPost) {
         const data = getGoalPunditData();
         currentPost = (data.posts && data.posts[0]) || null;
@@ -298,15 +317,18 @@
       if (relContainer) {
         const displayRel = related.length > 0 ? related : (data.posts || []).filter(x => x.id !== p.id).slice(0, 3);
         relContainer.innerHTML = displayRel.map(r => `
-          <article class="article-card">
-            <div class="article-thumb" style="height:150px;">
+          <article class="mosaic-card">
+            <div class="mosaic-thumb">
               <a href="post.html?slug=${r.slug}"><img src="${r.image}" alt="${r.title}"></a>
             </div>
-            <div class="article-content" style="padding:14px;">
-              <h4 style="font-size:14px; font-weight:700; line-height:1.4;">
+            <div class="mosaic-body">
+              <h4 class="mosaic-title">
                 <a href="post.html?slug=${r.slug}">${r.title}</a>
               </h4>
-              <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">${r.date}</div>
+              <div class="mosaic-footer">
+                <span>${r.category}</span>
+                <span>${r.date}</span>
+              </div>
             </div>
           </article>
         `).join('');
@@ -316,13 +338,24 @@
       const trendingContainer = document.getElementById('postSidebarTrending');
       if (trendingContainer) {
         trendingContainer.innerHTML = (data.posts || []).slice(0, 5).map((t, idx) => `
-          <div class="trending-item">
-            <span class="trending-rank">0${idx + 1}</span>
-            <div class="trending-item-content">
+          <div class="trending-post-row">
+            <span class="trending-num">0${idx + 1}</span>
+            <div class="trending-row-info">
               <h4><a href="post.html?slug=${t.slug}">${t.title}</a></h4>
-              <div class="trending-item-meta">${t.category} • ${t.date}</div>
+              <div class="trending-row-meta">${t.category} • ${t.date}</div>
             </div>
           </div>
+        `).join('');
+      }
+
+      // Sidebar Categories
+      const catContainer = document.getElementById('postSidebarCats');
+      if (catContainer && data.categories) {
+        catContainer.innerHTML = data.categories.slice(0, 8).map(c => `
+          <a href="category.html?slug=${c.slug}" class="cat-sidebar-link">
+            <span>${c.name}</span>
+            <span class="cat-pill-count">${c.count}</span>
+          </a>
         `).join('');
       }
     }
@@ -343,62 +376,50 @@
 
     function copyArticleLink() {
       navigator.clipboard.writeText(window.location.href).then(() => {
-        showToast('Link copied to clipboard!');
+        showToast('Article link copied to clipboard!');
       }).catch(() => {
         showToast('Link: ' + window.location.href);
       });
     }
 
-    function handleNewsletter(e) {
-      e.preventDefault();
-      showToast('Thank you for subscribing to Goal Pundit Tactical Dispatch!');
-      e.target.reset();
-    }
-
     function openSearchModal() {
       const m = document.getElementById('searchModal');
-      if (m) {
-        m.classList.add('show');
-        setTimeout(() => document.getElementById('modalSearchInput').focus(), 100);
-      }
+      if (m) { m.classList.add('show'); setTimeout(() => document.getElementById('modalSearchInput').focus(), 100); }
     }
-
     function closeSearchModal() {
       const m = document.getElementById('searchModal');
       if (m) m.classList.remove('show');
     }
-
     function handleInstantSearch(val) {
       const resContainer = document.getElementById('modalSearchResults');
       if (!val || val.trim().length < 2) {
-        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">Type at least 2 letters to search...</div>';
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">Type at least 2 letters to search...</div>';
         return;
       }
       const results = searchPosts(val).slice(0, 6);
       if (results.length === 0) {
-        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted); font-size:14px;">No matching articles found for "' + val + '"</div>';
+        resContainer.innerHTML = '<div style="padding:20px; text-align:center; color:var(--color-text-muted); font-size:14px;">No matching articles found for "' + val + '"</div>';
         return;
       }
       resContainer.innerHTML = results.map(p => `
-        <a href="post.html?slug=${p.slug}" class="search-result-item">
-          <h5>${p.title}</h5>
-          <span>${p.category} • ${p.date}</span>
+        <a href="post.html?slug=${p.slug}" class="search-result-item" style="display:block; padding:12px 18px; border-bottom:1px solid #f1f5f9;">
+          <h5 style="font-size:14px; color:var(--color-header); margin-bottom:4px;">${p.title}</h5>
+          <span style="font-size:12px; color:var(--color-accent);">${p.category} • ${p.date}</span>
         </a>
       `).join('');
     }
-
     function toggleMobileNav() {
       const nav = document.querySelector('.site-nav');
       if (nav) {
         nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
         nav.style.flexDirection = 'column';
         nav.style.position = 'absolute';
-        nav.style.top = '100%';
+        nav.style.top = '74px';
         nav.style.left = '0';
         nav.style.right = '0';
-        nav.style.background = '#fff';
-        nav.style.padding = '20px';
-        nav.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+        nav.style.background = 'var(--color-header)';
+        nav.style.padding = '16px';
+        nav.style.height = 'auto';
       }
     }
   </script>
