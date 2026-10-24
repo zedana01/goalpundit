@@ -51,7 +51,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/main.css?v=20261024_05">
+  <link rel="stylesheet" href="css/main.css?v=20261024_07">
 </head>
 <body>
 
@@ -305,7 +305,7 @@
     </div>
   </div>
 
-  <script src="js/goalpundit-sync.js?v=20261024_05"></script>
+  <script src="js/goalpundit-sync.js?v=20261024_07"></script>
   <script>
     let currentPost = null;
 
@@ -340,12 +340,16 @@
             // Update Dynamic SEO Tags
       const fullUrl = 'https://goalpundit.com/post.html?slug=' + p.slug;
       const fullImgUrl = p.image.startsWith('http') ? p.image : ('https://goalpundit.com' + p.image);
-      const cleanExcerpt = (p.excerpt || '').replace(/<[^>]*>/g, '').trim().substring(0, 160);
+      const seoDesc = p.seoDescription || (p.excerpt || '').replace(/<[^>]*>/g, '').trim().substring(0, 160);
+      const seoKeywords = p.metaKeywords || (p.focusKeyword ? `${p.focusKeyword}, ${p.category}, football tactics` : 'football tactics, match analysis');
 
       document.title = p.title + ' | Goal Pundit';
       
       const descEl = document.getElementById('metaDescription');
-      if (descEl) descEl.setAttribute('content', cleanExcerpt);
+      if (descEl) descEl.setAttribute('content', seoDesc);
+
+      const kwEl = document.getElementById('metaKeywords');
+      if (kwEl) kwEl.setAttribute('content', seoKeywords);
 
       const canEl = document.getElementById('canonicalLink');
       if (canEl) canEl.setAttribute('href', fullUrl);
@@ -353,7 +357,7 @@
       const ogT = document.getElementById('ogTitle');
       if (ogT) ogT.setAttribute('content', p.title);
       const ogD = document.getElementById('ogDescription');
-      if (ogD) ogD.setAttribute('content', cleanExcerpt);
+      if (ogD) ogD.setAttribute('content', seoDesc);
       const ogU = document.getElementById('ogUrl');
       if (ogU) ogU.setAttribute('content', fullUrl);
       const ogI = document.getElementById('ogImage');
@@ -362,7 +366,7 @@
       const twT = document.getElementById('twTitle');
       if (twT) twT.setAttribute('content', p.title);
       const twD = document.getElementById('twDescription');
-      if (twD) twD.setAttribute('content', cleanExcerpt);
+      if (twD) twD.setAttribute('content', seoDesc);
       const twI = document.getElementById('twImage');
       if (twI) twI.setAttribute('content', fullImgUrl);
 
@@ -373,7 +377,9 @@
           "@type": "NewsArticle",
           "mainEntityOfPage": { "@type": "WebPage", "@id": fullUrl },
           "headline": p.title,
-          "description": cleanExcerpt,
+          "description": seoDesc,
+          "keywords": seoKeywords,
+          "articleSection": p.category,
           "image": [fullImgUrl],
           "datePublished": p.dateTime || p.date,
           "dateModified": p.dateTime || p.date,
@@ -403,7 +409,7 @@
       const img = document.getElementById('postFeaturedImage');
       img.src = p.image;
       img.onerror = function() { this.onerror=null; this.src="/images/posts/default-football.jpg"; };
-      img.alt = p.title;
+      img.alt = p.title + ' - ' + (p.focusKeyword || p.category);
 
       document.getElementById('postContent').innerHTML = p.content;
 
