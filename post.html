@@ -51,7 +51,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/main.css?v=20261024_04">
+  <link rel="stylesheet" href="css/main.css?v=20261024_05">
 </head>
 <body>
 
@@ -305,11 +305,11 @@
     </div>
   </div>
 
-  <script src="js/goalpundit-sync.js?v=20261024_04"></script>
+  <script src="js/goalpundit-sync.js?v=20261024_05"></script>
   <script>
     let currentPost = null;
 
-    document.addEventListener('DOMContentLoaded', () => {
+    function initPostPage() {
       const urlParams = new URLSearchParams(window.location.search);
       const slug = urlParams.get('slug');
       const id = urlParams.get('id');
@@ -328,7 +328,13 @@
       if (currentPost) {
         renderPost(currentPost);
       }
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPostPage);
+    } else {
+      initPostPage();
+    }
 
     function renderPost(p) {
             // Update Dynamic SEO Tags
@@ -400,6 +406,29 @@
       img.alt = p.title;
 
       document.getElementById('postContent').innerHTML = p.content;
+
+      // Enhance and rewrite internal/external hyperlinks inside article
+      const postLinks = document.querySelectorAll('#postContent a');
+      postLinks.forEach(a => {
+        const rawHref = a.getAttribute('href') || '';
+        if (rawHref.includes('goalpundit.com') || rawHref.startsWith('/')) {
+          if (rawHref.includes('/category/')) {
+            const catParts = rawHref.split('/category/')[1].replace(/\/+$/, '').split('/');
+            a.setAttribute('href', 'category.html?slug=' + catParts[0]);
+          } else {
+            const parts = rawHref.replace(/https?:\/\/[^\/]+/, '').replace(/\/+$/, '').split('/').filter(Boolean);
+            if (parts.length > 0) {
+              const potentialSlug = parts[parts.length - 1];
+              if (potentialSlug && !potentialSlug.endsWith('.html')) {
+                a.setAttribute('href', 'post.html?slug=' + potentialSlug);
+              }
+            }
+          }
+        } else if (rawHref.startsWith('http')) {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
 
       // Related Posts
       const data = getGoalPunditData();
@@ -501,7 +530,6 @@
         </a>
       `).join('');
     }
-    // Handled by js/goalpundit-sync.js?v=20261024_04
   </script>
 </body>
 </html>
